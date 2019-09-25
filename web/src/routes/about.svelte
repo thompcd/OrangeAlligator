@@ -1,3 +1,31 @@
+<script>
+import Card from "../components/Card.svelte";
+
+  let teamMembers = [
+    {
+      name: "Corey Thompson",
+	  imageSrc: "./corey-thompson.jpg",
+	  content: "Corey is a father, web developer, Data Visualization Society contributor, electrical engineer and full-time software engineer in Tulsa, OK. He has a specialty in manufacturing and quality control software with nearly a decade of experience working within the electronics, HVAC, oil and gas industries.",
+    },
+    {
+      name: "Trey Bishop",
+	  imageSrc: "./trey-bishop.jpg",
+	  content: "Trey is an inventor, concept artist and graphic designer with over fifteen years of experience working for creative agencies, large corporations and educational institutions. He specializes in exploring bold new ideas and innovating beyond the status quo and has worked with clients such as Circle 5 Studios (previously Lukewarm Media), Tri County Tech, ESI with Walmart Labs, Questel, Executive IP and Nemesis Studios.",
+    },
+    {
+      name: "Lee Whitehead",
+	  imageSrc: "./lee-whitehead.png",
+	  content: "Lee is the owner of UVOICE Consulting, Inc. and has over 8 years of marketing, technology and sales enablement experience. He has a specialty in technology and SaaS businesses with a heavy focus on sustainable growth. Lee uses his vast experience in technology and marketing to help clients focus on growth through execution.",
+    },
+    {
+      name: "Blake Tucker",
+	  imageSrc: "./blake-tucker.jpg",
+	  content: "Blake is a Network and Systems Analyst with over half a decade in the field. He uses his expertise in Azure's cloud services and Office 365 to help clients meet their Information Technology needs. He has worked in many industries such as oil and gas, healthcare, manufacturing, sales, marketing and legal.",
+    }
+  ];
+
+</script>
+
 <svelte:head>
 	<title>About</title>
 </svelte:head>
@@ -21,100 +49,59 @@ We have crafted a network to ensure each project is completed on time with excep
 
 <h2>Meet Our Experts</h2>
 
+    <div class="cards">
+      {#each teamMembers as member}
+        <Card
+          name={member.name}
+          imageSrc={member.imageSrc}
+		  content={member.content} />
+      {/each}
+    </div>
 	<!-- wpshopmart team builder wrapper -->
-	<div class="wpsm_team_2_b_row" id="wpsm_team_2_b_row_4321">
-		<div class="wpsm_row">  
-			<style>
-			#wpsm_team_2_b_row_4321 .wpsm_team_2_member_wrapper_inner h3{
-				color:#000000 !important;
-				font-size:18px !important;
-				font-family:Open Sans !important;
-			}
-			
-			#wpsm_team_2_b_row_4321 .wpsm_team_2_b_desig{
-				color:#000000 !important;
-				font-size:14px !important;
-				font-family:Open Sans !important;
-			}
-			#wpsm_team_2_b_row_4321 .wpsm_team_2_b_desc{
-				color:#000000 !important;
-				font-size:14px !important;
-				font-family:Open Sans !important;
-			}
-			#wpsm_team_2_b_row_4321 .wpsm_team_2_social_div a i{
-				color:#4f4f4f !important;
-				border-color:#4f4f4f !important;
-			}
-			#wpsm_team_2_b_row_4321 .wpsm_team_2_member_wrapper{
-				background:#ffffff !important;
-			}
-						</style>
-						 
-					
-					
-					<div class="col-md-4 wpsm-col-div">
-						<div class="wpsm_team_2_member_wrapper">
-							<img class="img-responsive wpsm_team_2_mem_img" src="https://orangealligatorsolutions.com/wp-content/uploads/2019/04/Corey-chair-square500x500.jpg" alt="Corey Thompson">
-							<div class="wpsm_team_2_member_wrapper_inner">
-								<h3>
-									Corey Thompson								</h3>
-								<span class="wpsm_team_2_b_desig"> Owner, Software Engineer </span> 								<div class="wpsm_team_2_social_div">
-									<a href="https://www.facebook.com/coreydwaynethompson" target="_blank" title="facebook profile"><i class="fa fa-facebook"></i></a> 																		<a href="https://www.linkedin.com/in/coreydthompson/" target="_blank" title="linkedin profile"><i class="fa fa-linkedin"></i></a>																	</div>
-								<p class="wpsm_team_2_b_desc"> Corey is a father, web developer, Data Visualization Society contributor, electrical engineer and full-time software engineer in Tulsa, OK. He has a specialty in manufacturing and quality control software with nearly a decade of experience working within the electronics, HVAC, oil and gas industries. </p> 								
-							</div>
-						</div>
-					</div>
-					
-													 
-					
-					
-					<div class="col-md-4 wpsm-col-div">
-						<div class="wpsm_team_2_member_wrapper">
-							<img class="img-responsive wpsm_team_2_mem_img" src="https://orangealligatorsolutions.com/wp-content/uploads/2019/04/trey_bishop_team.jpg" alt="Trey Bishop">
-							<div class="wpsm_team_2_member_wrapper_inner">
-								<h3>
-									Trey Bishop								</h3>
-								<span class="wpsm_team_2_b_desig"> Designer, Innovation Consultant </span> 								<div class="wpsm_team_2_social_div">
-																											<a href="https://www.linkedin.com/in/treybishop/" target="_blank" title="linkedin profile"><i class="fa fa-linkedin"></i></a>																	</div>
-								<p class="wpsm_team_2_b_desc"> Trey is an inventor, concept artist and graphic designer with over fifteen years of experience working for creative agencies, large corporations and educational institutions. He specializes in exploring bold new ideas and innovating beyond the status quo and has worked with clients such as Circle 5 Studios (previously Lukewarm Media), Tri County Tech, ESI with Walmart Labs, Questel, Executive IP and Nemesis Studios. </p> 								
-							</div>
-						</div>
-					</div>
-					
-													 
-					
-					
-					<div class="col-md-4 wpsm-col-div">
-						<div class="wpsm_team_2_member_wrapper">
-							<img class="img-responsive wpsm_team_2_mem_img" src="https://orangealligatorsolutions.com/wp-content/uploads/2019/04/20181212_203004.jpg" alt="Blake Tucker">
-							<div class="wpsm_team_2_member_wrapper_inner">
-								<h3>
-									Blake Tucker								</h3>
-								<span class="wpsm_team_2_b_desig"> Network Analyst, Technology Consultant </span> 								<div class="wpsm_team_2_social_div">
-																											<a href="https://www.linkedin.com/in/blake-t-85109783/" target="_blank" title="linkedin profile"><i class="fa fa-linkedin"></i></a>																	</div>
-								<p class="wpsm_team_2_b_desc"> Blake is a Network and Systems Analyst with over half a decade in the field. He uses his expertise in Azure's cloud services and Office 365 to help clients meet their Information Technology needs. He has worked in many industries such as oil and gas, healthcare, manufacturing, sales, marketing and legal. </p> 								
-							</div>
-						</div>
-					</div>
-					
-											</div>
-						<div class="wpsm_row">
-														 
-					
-					
-					<div class="col-md-4 wpsm-col-div">
-						<div class="wpsm_team_2_member_wrapper">
-							<img class="img-responsive wpsm_team_2_mem_img" src="https://orangealligatorsolutions.com/wp-content/uploads/2019/09/profile_image.png" alt="Lee Whitehead">
-							<div class="wpsm_team_2_member_wrapper_inner">
-								<h3>
-									Lee Whitehead								</h3>
-								<span class="wpsm_team_2_b_desig"> Growth and Enablement Consultant </span> 								<div class="wpsm_team_2_social_div">
-																											<a href="https://www.linkedin.com/in/leetwhitehead/" target="_blank" title="linkedin profile"><i class="fa fa-linkedin"></i></a>																	</div>
-								<p class="wpsm_team_2_b_desc"> Lee is the owner of UVOICE Consulting, Inc. and has over 8 years of marketing, technology and sales enablement experience. He has a specialty in technology and SaaS businesses with a heavy focus on sustainable growth. Lee uses his vast experience in technology and marketing to help clients focus on growth through execution. </p> 								
-							</div>
-						</div>
-					</div>
-					
-												
+	<!-- <div class="grid">
+		<div class="team-member">
+			<img class="img-responsive wpsm_team_2_mem_img" src="./corey-thompson.jpg" alt="Corey Thompson">
+			<div class="team-member_inner">
+				<h3>Corey Thompson</h3>
+				<span class="wpsm_team_2_b_desig"> Owner, Software Engineer </span> 								<div class="wpsm_team_2_social_div">
+					<a href="https://www.facebook.com/coreydwaynethompson" target="_blank" title="facebook profile"><i class="fa fa-facebook"></i></a> 																		<a href="https://www.linkedin.com/in/coreydthompson/" target="_blank" title="linkedin profile"><i class="fa fa-linkedin"></i></a>																	</div>
+				<p class="wpsm_team_2_b_desc"></div>
 		</div>
-	</div>
+		<div class="team-member">
+			<img class="img-responsive wpsm_team_2_mem_img" src="./trey-bishop.jpg" alt="Trey Bishop">
+			<div class="team-member_inner">
+				<h3>Trey Bishop</h3>
+				<span class="wpsm_team_2_b_desig"> Designer, Innovation Consultant </span> 								<div class="wpsm_team_2_social_div">
+																							<a href="https://www.linkedin.com/in/treybishop/" target="_blank" title="linkedin profile"><i class="fa fa-linkedin"></i></a>																	</div>
+				<p class="wpsm_team_2_b_desc">  </p> 								
+			</div>
+		</div>
+		<div class="team-member">
+			<img class="img-responsive wpsm_team_2_mem_img" src="./blake-tucker.jpg" alt="Blake Tucker">
+			<div class="team-member_inner">
+				<h3>Blake Tucker</h3>
+				<span class="wpsm_team_2_b_desig"> Network Analyst, Technology Consultant </span> 								<div class="wpsm_team_2_social_div">
+																							<a href="https://www.linkedin.com/in/blake-t-85109783/" target="_blank" title="linkedin profile"><i class="fa fa-linkedin"></i></a>																	</div>
+				<p class="wpsm_team_2_b_desc"> </p> 								
+			</div>
+		</div>
+		<div class="team-member">
+			<img class="img-responsive wpsm_team_2_mem_img" src="./lee-whitehead.png" alt="Lee Whitehead">
+			<div class="team-member_inner">
+				<h3>Lee Whitehead</h3>
+				<span class="wpsm_team_2_b_desig"> Growth and Enablement Consultant </span> 								<div class="wpsm_team_2_social_div">
+																							<a href="https://www.linkedin.com/in/leetwhitehead/" target="_blank" title="linkedin profile"><i class="fa fa-linkedin"></i></a>																	</div>
+				<p class="wpsm_team_2_b_desc">  </p> 								
+			</div>
+		</div>
+	</div> -->
+
+<style>
+
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+</style>
+					
