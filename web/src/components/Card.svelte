@@ -18,7 +18,6 @@
     color: black;
     text-align: center;
     flex: 1 1 300px;
-    margin: 1rem 0 1rem 0;
   }
   .card-title {
     font-size: 1.5rem;

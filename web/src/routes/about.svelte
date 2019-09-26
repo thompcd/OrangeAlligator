@@ -28,7 +28,7 @@ import Card from "../components/Card.svelte";
 		}
 	  },
 	  jobTitle: "Designer, Innovation Consultant",
-	  content: "Trey is an inventor, concept artist and graphic designer with over fifteen years of experience working for creative agencies, large corporations and educational institutions. He specializes in exploring bold new ideas and innovating beyond the status quo and has worked with clients such as Circle 5 Studios (previously Lukewarm Media), Tri County Tech, ESI with Walmart Labs, Questel, Executive IP and Nemesis Studios.",
+	  content: "Trey is an inventor, concept artist and graphic designer with over fifteen years of experience working for creative agencies, large corporations and educational institutions. He specializes in exploring bold new ideas and innovating beyond the status quo and has worked with clients such as Circle 5 Studios, Tri County Tech, ESI with Walmart Labs, Questel, Executive IP and Nemesis Studios.",
     },
     {
       name: "Lee Whitehead",
@@ -82,21 +82,28 @@ We have crafted a network to ensure each project is completed on time with excep
 <h2>Meet Our Experts</h2>
 
     <div class="cards">
-      {#each teamMembers as member}
-        <Card
-          name={member.name}
-          imageSrc={member.imageSrc}
-		  content={member.content}
-		  jobTitle={member.jobTitle}
-		  links={member.links} />
-      {/each}
+		{#each teamMembers as member}
+		<div class="card" >
+				<Card
+				name={member.name}
+				imageSrc={member.imageSrc}
+				content={member.content}
+				jobTitle={member.jobTitle}
+				links={member.links}
+				/>
+		</div>
+		{/each}
     </div>
 <style>
 
   .cards {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
+    justify-content: space-between;
+	flex-wrap: wrap;
+	flex-direction: row;
+	  }
+	.card{
+		padding: 0.2rem;
+	}
 </style>
 					
