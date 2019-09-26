@@ -103,7 +103,7 @@ We have crafted a network to ensure each project is completed on time with excep
 	flex-direction: row;
 	  }
 	.card{
-		padding: 0.2rem;
+		padding: 0.5rem 0;
 	}
 </style>
 					
