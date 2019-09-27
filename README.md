@@ -1,12 +1,13 @@
-# OrangeAlligator
+# OrangeAlligator Solutions
 
-_Fully customizable blog template with a Svelte.js front-end._
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4f608a89-9567-4691-b4c8-ccdbb07267e4/deploy-status)](https://app.netlify.com/sites/orangealligator/deploys) [![Slack Community Button](https://img.shields.io/badge/Slack-Join%20Our%20Community-orange?logo=slack)](https://orangealligator.slack.com/)
 
-Deployed from [sanity.io/create](https://www.sanity.io/create?template=sanity-io/sanity-template-sapper-blog)
+[OrangeAlligator.io](https://www.orangealligator.io)
+The Orange Alligator Solutions, LLC public website.
 
-## What you have
+## Current Setup
 
-- A Military-grade progressive blog with [Sapper](https://sapper.svelte.dev/)
+- Blog with [Sapper](https://sapper.svelte.dev/)
 - Structured content using [Sanity.io](https://www.sanity.io)
 - Global deployment on [Netlify](https://netlify.com)
 
@@ -22,9 +23,3 @@ Deployed from [sanity.io/create](https://www.sanity.io/create?template=sanity-io
 ## Deploy changes
 
 Netlify automatically deploys new changes commited to master on GitHub. If you want to change deployment branch, do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
-
-## Stuck? Get help
-
-[![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
-
-Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
