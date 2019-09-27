@@ -4,7 +4,7 @@
   "description": "Sapper frontend",
   "version": "0.0.1",
   "scripts": {
-    "dev": "sapper dev",
+    "dev": "sapper dev --no-hot",
     "build": "sapper export",
     "export": "sapper export",
     "start": "node __sapper__/build",

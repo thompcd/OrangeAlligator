@@ -4,7 +4,7 @@
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
+		border-bottom: 1px solid #ed703a;
 		font-weight: 300;
 		padding: 0 1em;
 		height: 58px;
@@ -62,6 +62,11 @@
 		text-decoration: none;
 		padding: 1.9em 0.5em .1em 0.5em;
 		display: block;
+		color: #f3f3f3;
+	}
+
+	a:hover {
+		color: #2e9be6;
 	}
 </style>
 
