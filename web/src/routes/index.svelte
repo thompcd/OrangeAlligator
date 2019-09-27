@@ -17,27 +17,13 @@ import Card from "../components/Card.svelte";
   ];
   </script>
 
-<style>
-  .cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  .stack{
-	  display: flex;
-	  flex-direction: column;
-	  text-align: center;
-  }
-
-</style>
-
 <svelte:head>
 	<title>Orange Alligator Solutions</title>
 </svelte:head>
 <h1>
 Business.<br>Software.
 </h1>
-Our front-end web and data visualization services provide unique consumer experiences while uncovering hidden factory, revealing your KPI’s trends and predicting your next targeted metrics. We also take dull or busy reports and make them clear, clean and professional. All of our services focus on a tangible benefit to you, the customer. Learn how we focus on growing business.
+Our front-end web and data visualization services provide unique consumer experiences while uncovering hidden factory, revealing your KPI’s trends and predicting your next targeted metrics. We also take dull or busy reports and make them clear, clean and professional. All of our services focus on a tangible benefit to you, the customer. <a href="./about">Learn how we focus on growing business.</a>
 
 <div class="cards">
 	      {#each teamMembers as member}
@@ -45,7 +31,7 @@ Our front-end web and data visualization services provide unique consumer experi
 			<Card
 			imageSrc={member.imageSrc}
 			/>
-			<h2>{member.name}</h2>
+			<h2 style="margin-top: -3rem; color: #414141; user-select: none;">{member.name}</h2>
 		  </div>
       {/each}
 </div>
@@ -55,3 +41,18 @@ What We Do
 </h2>
 
 We provide Tulsa with front-end web design, development and interactive data visualization with specialties in manufacturing and quality, we create UI/UX to best serve your internal and external customers.
+
+<style>
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+	padding: 3em 0;
+  }
+  .stack{
+	  display: flex;
+	  flex-direction: column;
+	  text-align: center;
+  }
+
+</style>

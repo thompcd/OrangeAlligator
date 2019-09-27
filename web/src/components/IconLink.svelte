@@ -1,11 +1,19 @@
 <script>
-import FaFacebookF from 'svelte-icons/fa/FaFacebookF.svelte'
+import { onMount } from 'svelte';
 import FaAlignCenter from 'svelte-icons/fa/FaAlignCenter.svelte'
 
   export let img;
   export let link;
+  let FaFacebookF;
   console.log("image string:", img);
   console.log("link:", link);
+
+  	onMount(async () => {
+      console.log("importing")
+		const module = await import('svelte-icons/fa/FaFacebookF.svelte');
+    FaFacebookF = module.default;
+    console.log("imported!")
+	});
 </script>
 
 <style>
@@ -15,10 +23,6 @@ import FaAlignCenter from 'svelte-icons/fa/FaAlignCenter.svelte'
     height: 36px;
     border-radius: 36px;
     border: 0.05rem solid #414141;
-  }
-
-  .facebook{
-
   }
 </style>
 <i class='fa fa-address-book-o'></i>
