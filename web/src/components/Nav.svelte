@@ -6,7 +6,7 @@
 	nav {
 		border-bottom: 1px solid #ed703a;
 		font-weight: 300;
-		padding: 0 1em;
+		padding: .5rem 1.5rem;
 		height: 58px;
 	}
 
