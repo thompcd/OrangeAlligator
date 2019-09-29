@@ -1,4 +1,4 @@
-<script>
+<script context="module">
 import Card from "../components/Card.svelte";
 
   let teamMembers = [
@@ -18,7 +18,7 @@ import Card from "../components/Card.svelte";
   </script>
 
 <svelte:head>
-	<title>Orange Alligator Solutions</title>
+	<title>Home | Orange Alligator Solutions</title>
 </svelte:head>
 <h1>
 Business.<br>Software.
@@ -31,7 +31,7 @@ Our front-end web and data visualization services provide unique consumer experi
 			<Card
 			imageSrc={member.imageSrc}
 			/>
-			<h2 style="margin-top: -3rem; color: #414141; user-select: none;">{member.name}</h2>
+			<h2 style="margin-top: -3rem; color: #414141; user-select: none; font-family: 'Roboto Condensed'; font-weight: 700; opacity: .9;">{member.name}</h2>
 		  </div>
       {/each}
 </div>

@@ -6,7 +6,7 @@
 	nav {
 		border-bottom: 1px solid #ed703a;
 		font-weight: 300;
-		padding: 0 1em;
+		padding: .5rem 1.5rem;
 		height: 58px;
 	}
 
@@ -43,40 +43,30 @@
 		padding: 0 0 ;
 	}
 
-	.selected {
-		position: relative;
-		display: inline-block;
-	}
-
-	.selected::after {
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: 2px;
-		background-color: #2e9be6;
-		display: block;
-		bottom: -3px;
-	}
-
 	a {
 		text-decoration: none;
-		padding: 1.9em 0.5em .1em 0.5em;
+		padding: 0 0.5em .1em 0.5em;
 		display: block;
 		color: #f3f3f3;
 	}
 
-	a:hover {
+	/* a:hover {
 		color: #2e9be6;
-	}
+	} */
 </style>
 
 <nav>
 	<ul>
-		<li class='{segment === undefined ? "selected" : ""}' id="home"><a  href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
+
+
+		<li class='{segment === undefined ? "selected" : ""} underline-box' id="home"><a class="custom-underline" href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
 
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li class='{segment === "blog" ? "selected" : ""}' ><a rel=prefetch  href='blog'>blog</a></li>
-		<li class='{segment === "about" ? "selected" : ""}' ><a rel=prefetch  href='about'>about</a></li>
+		<li class='{segment === "contact" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='contact'>contact</a></li>
+		<!-- <li class='{segment === "customer-services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='customer-services'>client</a></li> -->
+		<!-- <li class='{segment === "blog" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='blog'>blog</a></li> -->
+		<li class='{segment === "about" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='about'>about</a></li>
+		<li class='{segment === "services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='services'>services</a></li>
 	</ul>
 </nav>

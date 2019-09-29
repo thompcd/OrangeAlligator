@@ -31,11 +31,14 @@ h4 {
 }
 
 a {
-	color: #2e9be6;
+	color: #ed703a;
+	text-decoration: none;
+	transition: 0.5s ease all;
 }
 
 a:hover{
-	color: #f3f3f3;
+	color: #2e9be6;
+	text-decoration: underline;
 }
 
 code {
@@ -52,3 +55,49 @@ code {
 		font-size: 16px;
 	}
 }
+
+.underline-box a {line-height: 3.5rem;}
+
+.custom-underline {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.custom-underline,
+.custom-underline:hover,
+.custom-underline:focus,
+.custom-underline:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+.underline-box .custom-underline::after {
+  top: 75%;
+  height: 2px !important;
+  width: 40%;
+  left: 30%;
+  background-color: rgba(255, 255, 255, 0.6);
+    transition: 0.4s ease-out all .1s;
+  content: "";
+  position: absolute;
+  z-index: -10000;
+}
+
+.underline-box:hover .custom-underline::after {
+  background-color: #2e9be6;
+  width: 90%;
+  left: 5%;
+  transition: 0.5s ease all;
+  z-index: -10000;
+}
+
+.selected .custom-underline::after {
+	background-color: #2e9be6;
+	width: 90%;
+	left: 5%;
+	  transition: 0.5s ease all;
+	z-index: -10000;
+  }
