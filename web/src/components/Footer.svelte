@@ -6,23 +6,24 @@
 	<div class="column">
     <h3>Contact us</h3>
     <div class="underline-box">
-      <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">File Share</a>
+      <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">Free Consultation</a>
     </div>
     <div class="underline-box">
-      <a class="custom-underline" href="https://app.invoiceninja.com/login">Client Billing</a>
+      <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://orangealligatorsolutions.com/file-share/">File Share
+      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
+      </a>
+    </div>
+    <div class="underline-box">
+      <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://billing.orangealligatorsolutions.com/">Client Billing
+      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
+      </a>
     </div>        
-    <div class="underline-box">
-      <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">Schedule Consultation</a>
-    </div>
 	</div>
 	<div class="column">
     <h3>Who we are</h3>
     <div class="underline-box">
       <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">About OAS</a>
     </div>
-    <div class="underline-box">
-      <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">Why OAS</a>
-    </div>        
     <div class="underline-box">
       <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">Recommended Services</a>
     </div> 

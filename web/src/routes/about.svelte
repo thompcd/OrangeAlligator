@@ -59,7 +59,7 @@ import Card from "../components/Card.svelte";
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>About | Orange Alligator Solutions</title>
 </svelte:head>
 <h1>About OAS</h1>
 
