@@ -60,7 +60,6 @@ import { files } from '../__sapper__/service-worker.js';
 
 ...so that you can cache them (though you can choose not to, for example if you don't want to cache very large files).
 
-
 ## Bundler config
 
 Sapper uses Rollup or webpack to provide code-splitting and dynamic imports, as well as compiling your Svelte components. With webpack, it also provides hot module reloading. As long as you don't do anything daft, you can edit the configuration files to add whatever plugins you'd like.
