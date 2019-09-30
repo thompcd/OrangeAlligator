@@ -11,10 +11,11 @@
     "graphql-deploy": "lerna run graphql-deploy",
     "lint": "lerna run lint",
     "postinstall": "lerna bootstrap",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "(cd web && npm run test)"
   },
   "devDependencies": {
     "@sanity/cli": "^0.140.17",
+    "cypress": "^3.4.1",
     "lerna": "^3.14.0"
   },
   "dependencies": {}
