@@ -1,5 +1,16 @@
 <script>
 	export let segment;
+
+	import { stores } from '@sapper/app';
+	import UAParser  from 'ua-parser-js';
+
+    // session is passed in server.js
+    const { preloading, page, session } = stores();
+    var parser = new UAParser();
+    parser.setUA($session['user-agent']);
+
+	let mobile = parser.getResult().device['type'] == 'mobile';
+	
 </script>
 
 <style>
@@ -55,11 +66,24 @@
 	} */
 </style>
 
+{#if mobile}
+<nav style="height: 40px;">
+	<ul style="display: flex; justify-content: center;">
+		<li id="home"><a rel=prefetch href='.'><img style="height: 30px;" src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
+
+		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+		     the blog data when we hover over the link or tap it on a touchscreen -->
+		<li style="padding-top: 0.45rem;"><a rel=prefetch  href='contact'>contact</a></li>
+		<!-- <li class='{segment === "customer-services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='customer-services'>client</a></li> -->
+		<!-- <li class='{segment === "blog" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='blog'>blog</a></li> -->
+		<li style="padding-top: 0.45rem;"><a rel=prefetch  href='about'>about</a></li>
+		<li style="padding-top: 0.45rem;"><a rel=prefetch  href='services'>services</a></li>
+	</ul>
+</nav>
+{:else}
 <nav>
 	<ul>
-
-
-		<li class='{segment === undefined ? "selected" : ""} underline-box' id="home"><a class="custom-underline" href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
+		<li class='{segment === undefined ? "selected" : ""} underline-box' id="home"><a rel=prefetch class="custom-underline" href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
 
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
@@ -70,3 +94,4 @@
 		<li class='{segment === "services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='services'>services</a></li>
 	</ul>
 </nav>
+{/if}
