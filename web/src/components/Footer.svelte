@@ -1,12 +1,40 @@
 <script>
-	export let segment;
+  export let segment;
+  
+  import { stores } from '@sapper/app';
+	import UAParser  from 'ua-parser-js';
+
+    // session is passed in server.js
+    const { preloading, page, session } = stores();
+    var parser = new UAParser();
+    parser.setUA($session['user-agent']);
+
+	let mobile = parser.getResult().device['type'] == 'mobile';
 </script>
 
-<footer>
+{#if mobile}
+   	<div class="column">
+    <h3>Contact us</h3>
+    <div class="underline-box">
+      <a class="custom-underline" href="contact">Free Consultation</a>
+    </div>
+    <div class="underline-box">
+      <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://orangealligatorsolutions.com/file-share/">File Share
+      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
+      </a>
+    </div>
+    <div class="underline-box">
+      <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://billing.orangealligatorsolutions.com/">Client Billing
+      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
+      </a>
+    </div>        
+	</div>
+{:else}
+   <footer>
 	<div class="column">
     <h3>Contact us</h3>
     <div class="underline-box">
-      <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">Free Consultation</a>
+      <a class="custom-underline" href="contact">Free Consultation</a>
     </div>
     <div class="underline-box">
       <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://orangealligatorsolutions.com/file-share/">File Share
@@ -22,10 +50,10 @@
 	<div class="column">
     <h3>Who we are</h3>
     <div class="underline-box">
-      <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">About OAS</a>
+      <a class="custom-underline" href="about">About OAS</a>
     </div>
     <div class="underline-box">
-      <a class="custom-underline" href="https://orangealligatorsolutions.com/file-share/">Recommended Services</a>
+      <a class="custom-underline" href="blog">Recommended Services</a>
     </div> 
 	</div>
     <div class="column paragraph" style="max-width: 30%; flex-wrap: wrap; ">
@@ -36,6 +64,8 @@
 	</div>
 <!-- <span style="text-align: center; width: 100% !important">· Made with care by <span style="color: #ed703a;">Orange Alligator Solutions</span> ·</span> -->
 </footer>
+{/if}
+
 
 <style>
 
