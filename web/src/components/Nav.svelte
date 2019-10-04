@@ -1,5 +1,17 @@
 <script>
 	export let segment;
+
+	import { stores } from '@sapper/app';
+    import UAParser  from 'ua-parser-js';
+
+    // session is passed in server.js
+    const { preloading, page, session } = stores();
+    var parser = new UAParser();
+    parser.setUA($session['user-agent']);
+
+    let mobile = parser.getResult().device['type'] == 'mobile';
+
+
 </script>
 
 <style>
@@ -55,10 +67,13 @@
 	} */
 </style>
 
+{#if mobile}
+<nav>
+MOBILE NAV
+</nav>
+{:else}
 <nav>
 	<ul>
-
-
 		<li class='{segment === undefined ? "selected" : ""} underline-box' id="home"><a class="custom-underline" href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
 
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
@@ -70,3 +85,4 @@
 		<li class='{segment === "services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='services'>services</a></li>
 	</ul>
 </nav>
+{/if}
