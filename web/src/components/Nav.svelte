@@ -1,24 +1,53 @@
 <script>
 	export let segment;
+	
+	let w, h;
+	let customUnderline = "";
+	let underlineBox = "";
+	let navStyle = "height 40px;";
+	let liStyle = "padding-top: 0.45rem;";
+	let iconStyle = "";
 
-	import { stores } from '@sapper/app';
-	import UAParser  from 'ua-parser-js';
-
-    // session is passed in server.js
-    const { preloading, page, session } = stores();
-    var parser = new UAParser();
-    parser.setUA($session['user-agent']);
-
-	let mobile = parser.getResult().device['type'] == 'mobile';
+	$: if (w < 480) {
+		console.log("less than 480");
+		customUnderline = "";
+		underlineBox = "";
+		navStyle = "height 40px;";
+		liStyle = "padding-top: 0.8rem;";
+		iconStyle = ""
+	}
+	$: if (w > 480){
+		console.log("more than 480");
+		customUnderline = "custom-underline";
+		underlineBox = "underline-box";
+		navStyle = "height: 58px;"
+		liStyle = "";
+		iconStyle = "height: 30px;";
+	}
 	
 </script>
+
+<svelte:window  bind:innerHeight={h} bind:innerWidth={w}></svelte:window>
+
+<nav style={navStyle}>
+	<ul>
+		<li class='{segment === undefined ? "selected" : ""} {underlineBox}' id="home"><a rel=prefetch class={customUnderline} href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
+
+		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+		     the blog data when we hover over the link or tap it on a touchscreen -->
+		<li style={liStyle} class='{segment === "contact" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='contact'>contact</a></li>
+		<!-- <li class='{segment === "customer-services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='customer-services'>client</a></li> -->
+		<!-- <li class='{segment === "blog" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='blog'>blog</a></li> -->
+		<li style={liStyle} class='{segment === "about" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='about'>about</a></li>
+		<li style={liStyle} class='{segment === "services" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='services'>services</a></li>
+	</ul>
+</nav>
 
 <style>
 	nav {
 		border-bottom: 1px solid #ed703a;
 		font-weight: 300;
 		padding: .5rem 1.5rem;
-		height: 58px;
 	}
 
 	ul {
@@ -36,6 +65,7 @@
 	li {
 		display: block;
 		float: right;
+		transition: ease-in;
 		/* height: 50px; */
 	}
 
@@ -61,37 +91,7 @@
 		color: #f3f3f3;
 	}
 
-	/* a:hover {
+	a:hover {
 		color: #2e9be6;
-	} */
+	}
 </style>
-
-{#if mobile}
-<nav style="height: 40px;">
-	<ul style="display: flex; justify-content: center;">
-		<li id="home"><a rel=prefetch href='.'><img style="height: 30px;" src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li style="padding-top: 0.45rem;"><a rel=prefetch  href='contact'>contact</a></li>
-		<!-- <li class='{segment === "customer-services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='customer-services'>client</a></li> -->
-		<!-- <li class='{segment === "blog" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='blog'>blog</a></li> -->
-		<li style="padding-top: 0.45rem;"><a rel=prefetch  href='about'>about</a></li>
-		<li style="padding-top: 0.45rem;"><a rel=prefetch  href='services'>services</a></li>
-	</ul>
-</nav>
-{:else}
-<nav>
-	<ul>
-		<li class='{segment === undefined ? "selected" : ""} underline-box' id="home"><a rel=prefetch class="custom-underline" href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li class='{segment === "contact" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='contact'>contact</a></li>
-		<!-- <li class='{segment === "customer-services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='customer-services'>client</a></li> -->
-		<!-- <li class='{segment === "blog" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='blog'>blog</a></li> -->
-		<li class='{segment === "about" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='about'>about</a></li>
-		<li class='{segment === "services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='services'>services</a></li>
-	</ul>
-</nav>
-{/if}
