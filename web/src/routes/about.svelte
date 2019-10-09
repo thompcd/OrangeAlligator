@@ -98,12 +98,14 @@ We have crafted a network to ensure each project is completed on time with excep
 
   .cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 	flex-wrap: wrap;
-	flex-direction: row;
 	  }
 	.card{
-		padding: 0.5rem 0;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		padding: 1rem;
 	}
 </style>
 					
