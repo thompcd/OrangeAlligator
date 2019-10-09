@@ -1,16 +1,17 @@
 <script>
   export let segment;
+
+  let mobile;
+	let w, h;
+
+	$: if (w < 480) {
+		mobile = true;
+	} else {
+    mobile = false;
+  }
   
-  import { stores } from '@sapper/app';
-	import UAParser  from 'ua-parser-js';
-
-    // session is passed in server.js
-    const { preloading, page, session } = stores();
-    var parser = new UAParser();
-    parser.setUA($session['user-agent']);
-
-	let mobile = parser.getResult().device['type'] == 'mobile';
 </script>
+<svelte:window  bind:innerHeight={h} bind:innerWidth={w}></svelte:window>
 
 {#if mobile}
    	<div class="column">

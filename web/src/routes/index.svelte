@@ -53,6 +53,7 @@ We provide Tulsa with front-end web design, development and interactive data vis
 	  display: flex;
 	  flex-direction: column;
 	  text-align: center;
+	  padding: 1rem;
   }
 
 </style>
