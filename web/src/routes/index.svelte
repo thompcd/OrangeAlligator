@@ -1,4 +1,4 @@
-<script context="module">
+<script>
 import Card from "../components/Card.svelte";
 
   let teamMembers = [

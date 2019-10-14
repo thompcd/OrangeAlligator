@@ -1,19 +1,18 @@
 <script>
 import Card from "../components/Card.svelte";
+import EmailIcon from 'svelte-icons/fa/FaRegEnvelope.svelte'
+import GithubIcon from 'svelte-icons/fa/FaGithubSquare.svelte'
+import FacebookIcon from 'svelte-icons/fa/FaFacebookSquare.svelte'
+import LinkedInIcon from 'svelte-icons/fa/FaLinkedIn.svelte'
 
   let teamMembers = [
     {
       name: "Corey Thompson",
 	  imageSrc: "./corey-thompson.jpg",
 	  links: {
-		icon: {
-			img: "facebook",
-			link: "https://www.facebook.com/coreydwaynethompson",
-		},
-		icon: {
-			img: "linkedIn",
-			link: "https://www.linkedin.com/in/coreydthompson/",
-		}
+		facebook: "https://www.facebook.com/coreydwaynethompson",
+		linkedIn: "https://www.linkedin.com/in/coreydthompson/",
+		github: "https://github.com/thompcd",
 	  },
 	  jobTitle: "Software Developer, Electrical Engineer",
 	  content: "Corey is a father, web developer, Data Visualization Society contributor, electrical engineer and full-time software engineer in Tulsa, OK. He has a specialty in manufacturing and quality control software with nearly a decade of experience working within the electronics, HVAC, oil and gas industries.",
@@ -22,10 +21,7 @@ import Card from "../components/Card.svelte";
       name: "Trey Bishop",
 	  imageSrc: "./trey-bishop.jpg",
 	  links: {
-		icon: {
-			img: "linkedIn",
-			link: "https://www.linkedin.com/in/treybishop/",
-		}
+		linkedIn: "https://www.linkedin.com/in/treybishop/",
 	  },
 	  jobTitle: "Designer, Innovation Consultant",
 	  content: "Trey is an inventor, concept artist and graphic designer with over fifteen years of experience working for creative agencies, large corporations and educational institutions. He specializes in exploring bold new ideas and innovating beyond the status quo and has worked with clients such as Circle 5 Studios, Tri County Tech, ESI with Walmart Labs, Questel, Executive IP and Nemesis Studios.",
@@ -34,10 +30,7 @@ import Card from "../components/Card.svelte";
       name: "Lee Whitehead",
 	  imageSrc: "./lee-whitehead.png",
 	  links: {
-		icon: {
-			img: "linkedIn",
-			link: "https://www.linkedin.com/in/leetwhitehead/",
-		}
+		linkedIn: "https://www.linkedin.com/in/leetwhitehead/",
 	  },
 	  jobTitle: "Growth and Enablement Consultant",
 	  content: "Lee is the owner of UVOICE Consulting, Inc. and has over 8 years of marketing, technology and sales enablement experience. He has a specialty in technology and SaaS businesses with a heavy focus on sustainable growth. Lee uses his vast experience in technology and marketing to help clients focus on growth through execution.",
@@ -46,10 +39,7 @@ import Card from "../components/Card.svelte";
       name: "Blake Tucker",
 	  imageSrc: "./blake-tucker.jpg",
 	  links: {
-		icon: {
-			img: "linkedIn",
-			link: "https://www.linkedin.com/in/blake-t-85109783/",
-		}
+		linkedIn: "https://www.linkedin.com/in/blake-t-85109783/",
 	  },
 	  jobTitle: "Network Analyst, Technology Consultant",
 	  content: "Blake is a Network and Systems Analyst with over half a decade in the field. He uses his expertise in Azure's cloud services and Office 365 to help clients meet their Information Technology needs. He has worked in many industries such as oil and gas, healthcare, manufacturing, sales, marketing and legal.",
@@ -84,17 +74,32 @@ We have crafted a network to ensure each project is completed on time with excep
     <div class="cards">
 		{#each teamMembers as member}
 		<div class="card" >
-				<Card
-				name={member.name}
-				imageSrc={member.imageSrc}
-				content={member.content}
-				jobTitle={member.jobTitle}
-				links={member.links}
-				/>
+				<Card>
+				<h2 slot="name" class="card-title">{member.name}</h2>
+				<img slot="image" class="card-image" src={member.imageSrc} alt={member.name} />
+				<h3 slot="title" class="card-job">{member.jobTitle}</h3>
+				<span class="icon" slot="facebook"><a  href={member['links']['facebook'] || ''} alt="facebook"><FacebookIcon /></a></span>
+				<span class="icon" slot="linkedIn"><a  href={member['links']['linkedIn'] || ''} alt="linkedIn"><LinkedInIcon /></a></span>
+				<span class="icon" slot="github"><a  href={member['links']['github'] || ''} alt="github"><GithubIcon /></a></span>
+				<p slot="content" class="card-content">{member.content}</p>
+				</Card>
 		</div>
 		{/each}
     </div>
 <style>
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .25rem .25rem;
+  }
+
+  .icon a{
+    color: #2e9be6;
+  }
+
+  .icon a:hover{
+    color: #ed703a;
+  }
 
   .cards {
     display: flex;
@@ -107,5 +112,32 @@ We have crafted a network to ensure each project is completed on time with excep
 		text-align: center;
 		padding: 1rem;
 	}
+	.card-image{
+		width: 300px;
+	}
+
+	  .card-title {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #000;
+    font-weight: 500;
+    text-align: center;
+    padding: 0rem 0 0 0;
+    margin-bottom: 0;
+  }
+    .card-content{
+      color: #414141;
+      text-align: center;
+      padding: 0rem 1rem 1rem 1rem;
+	  margin-top: 0.5rem;
+  }
+
+  .card-job{
+    color: #414141;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 400;
+	margin-bottom: 1rem;
+  }
 </style>
 					
