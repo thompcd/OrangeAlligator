@@ -15,10 +15,6 @@
 
 {#if mobile}
    	<div class="column">
-    <h3>Contact us</h3>
-    <div class="underline-box">
-      <a class="custom-underline" href="contact">Free Consultation</a>
-    </div>
     <div class="underline-box">
       <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://orangealligatorsolutions.com/file-share/">File Share
       <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
@@ -33,10 +29,6 @@
 {:else}
    <footer>
 	<div class="column">
-    <h3>Contact us</h3>
-    <div class="underline-box">
-      <a class="custom-underline" href="contact">Free Consultation</a>
-    </div>
     <div class="underline-box">
       <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://orangealligatorsolutions.com/file-share/">File Share
       <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
@@ -50,9 +42,6 @@
 	</div>
 	<div class="column">
     <h3>Who we are</h3>
-    <div class="underline-box">
-      <a class="custom-underline" href="about">About OAS</a>
-    </div>
     <div class="underline-box">
       <a class="custom-underline" href="blog">Recommended Services</a>
     </div> 
