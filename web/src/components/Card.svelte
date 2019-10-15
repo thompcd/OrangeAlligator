@@ -19,16 +19,13 @@
     <slot name="facebook"></slot>
     <slot name="linkedIn"></slot>
     <slot name="github"></slot>
+    <slot name="deviantArt"></slot>
   </div>
 
-  <slot name="content" class="card-content"> {content} </slot>
+  <slot name="content"> </slot>
 </div>
 
 <style>
-
-::slotted(img){
-  width: 300px;
-}
   .card-links{
     display: flex;
     justify-content: center;
@@ -53,9 +50,6 @@
     margin-bottom: 0;
   }
 
-  /* .card-img {
-    width: 100%;
-  } */
   .card-img {
     display: block;
     height: 300px;

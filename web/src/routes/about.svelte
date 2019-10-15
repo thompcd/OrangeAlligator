@@ -4,6 +4,8 @@ import EmailIcon from 'svelte-icons/fa/FaRegEnvelope.svelte'
 import GithubIcon from 'svelte-icons/fa/FaGithubSquare.svelte'
 import FacebookIcon from 'svelte-icons/fa/FaFacebookSquare.svelte'
 import LinkedInIcon from 'svelte-icons/fa/FaLinkedIn.svelte'
+import DevIcon from 'svelte-icons/fa/FaDev.svelte'
+import DeviantArtIcon from 'svelte-icons/fa/FaDeviantart.svelte'
 
   let teamMembers = [
     {
@@ -22,6 +24,7 @@ import LinkedInIcon from 'svelte-icons/fa/FaLinkedIn.svelte'
 	  imageSrc: "./trey-bishop.jpg",
 	  links: {
 		linkedIn: "https://www.linkedin.com/in/treybishop/",
+		deviantArt: "https://www.deviantart.com/treybishop",
 	  },
 	  jobTitle: "Designer, Innovation Consultant",
 	  content: "Trey is an inventor, concept artist and graphic designer with over fifteen years of experience working for creative agencies, large corporations and educational institutions. He specializes in exploring bold new ideas and innovating beyond the status quo and has worked with clients such as Circle 5 Studios, Tri County Tech, ESI with Walmart Labs, Questel, Executive IP and Nemesis Studios.",
@@ -78,15 +81,24 @@ We have crafted a network to ensure each project is completed on time with excep
 				<h2 slot="name" class="card-title">{member.name}</h2>
 				<img slot="image" class="card-image" src={member.imageSrc} alt={member.name} />
 				<h3 slot="title" class="card-job">{member.jobTitle}</h3>
-				<span class="icon" slot="facebook"><a  href={member['links']['facebook'] || ''} alt="facebook"><FacebookIcon /></a></span>
-				<span class="icon" slot="linkedIn"><a  href={member['links']['linkedIn'] || ''} alt="linkedIn"><LinkedInIcon /></a></span>
-				<span class="icon" slot="github"><a  href={member['links']['github'] || ''} alt="github"><GithubIcon /></a></span>
+				<span class="icon {member['links']['facebook'] == undefined ? "hide" : ""}" 
+					slot="facebook"><a  href={member['links']['facebook'] || ''} alt="facebook"><FacebookIcon /></a></span>
+				<span class="icon {member['links']['linkedIn'] == undefined ? "hide" : ""}"
+					slot="linkedIn"><a  href={member['links']['linkedIn'] || ''} alt="linkedIn"><LinkedInIcon /></a></span>
+				<span class="icon {member['links']['github'] == undefined ? "hide" : ""}" 
+					slot="github"><a  href={member['links']['github'] || ''} alt="github"><GithubIcon /></a></span>
+				<span class="icon {member['links']['deviantArt'] == undefined ? "hide" : "render"}" 
+					slot="deviantArt"><a  href={member['links']['deviantArt'] || ''} alt="deviantArt"><DeviantArtIcon /></a></span>
 				<p slot="content" class="card-content">{member.content}</p>
 				</Card>
 		</div>
 		{/each}
     </div>
 <style>
+
+.hide{
+	display: none;
+}
   .icon {
     width: 1.5rem;
     height: 1.5rem;
