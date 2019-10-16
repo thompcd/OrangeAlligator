@@ -1,46 +1,36 @@
 <script>
-  import IconLink from "../components/IconLink.svelte";
-
   export let name;
   export let imageSrc;
   export let content;
   export let jobTitle;
-  export let links = [];
-  console.log("links",links)
+  export let links;
+  
 </script>
-
 <div class="card">
-  {#if imageSrc}
-  <div class="card-img">
-    <img
-      src={imageSrc}
-      alt={name} />
-  </div>
-  {/if}
-  {#if name}
-  <h3 class="card-title"> {name} </h3>
-  {/if}
-  {#if jobTitle}
-  <div class="card-job">
-    <span>{jobTitle}</span>
-  </div>
-  {/if}
-  {#if links}
+  <slot name="image" class="card-img">
+  </slot>
+  <slot name="name" class="card-title">
+  </slot>
+  <slot name="title" class="card-job">
+  </slot>
+  
   <div class="card-links">
-    {#each links as icon}
-      <IconLink
-        img={icon.img}
-        link={icon.link}
-      />
-    {/each}
+    <slot name="contact"></slot>
+    <slot name="facebook"></slot>
+    <slot name="linkedIn"></slot>
+    <slot name="github"></slot>
+    <slot name="deviantArt"></slot>
   </div>
-  {/if}
-  {#if content}
-  <div class="card-content"> {content} </div>
-  {/if}
+
+  <slot name="content"> </slot>
 </div>
 
 <style>
+  .card-links{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
   .card {
     width: 300px;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -56,29 +46,14 @@
     color: #000;
     font-weight: 500;
     text-align: center;
-    padding: 1rem 0 0 0;
+    padding: 0rem 0 0 0;
     margin-bottom: 0;
   }
 
-  .card-content{
-      color: #414141;
-      text-align: center;
-      padding: 1rem 1rem 1rem 1rem;
-  }
-
   .card-img {
-    width: 100%;
-  }
-  .card-img img {
     display: block;
     height: 300px;
     width: 300px;
   }
 
-  .card-job{
-    color: #414141;
-    font-family: 'Open Sans';
-    font-size: 14px;
-    font-weight: 400;
-  }
 </style>
