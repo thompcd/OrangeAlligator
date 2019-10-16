@@ -1,15 +1,19 @@
 <script>
 import { onMount } from 'svelte';
+import FaAlignCenter from 'svelte-icons/fa/FaAlignCenter.svelte'
 
   export let img;
   export let link;
-  // console.log("icon img", img)
-    
-  onMount(() => {
-    console.log("icon img!", img)
-    console.log("icon link!", link)
-  });
+  let FaFacebookF;
+  console.log("image string:", img);
+  console.log("link:", link);
 
+  	onMount(async () => {
+      console.log("importing")
+		const module = await import('svelte-icons/fa/FaFacebookF.svelte');
+    FaFacebookF = module.default;
+    console.log("imported!")
+	});
 </script>
 
 <style>
@@ -21,14 +25,13 @@ import { onMount } from 'svelte';
     border: 0.05rem solid #414141;
   }
 </style>
+<i class='fa fa-address-book-o'></i>
 <div class="icon {img}">
     <a href={link}>
     {#if img == "facebook"}
-      <FacebookIcon />
+      <FaFacebookF />
     {:else if img == "linkedIn"}
-      <LinkedInIcon />
-    {:else if img == "github"}
-      <GithubIcon />
+      <FaAlignCenter />
     {/if}
     </a>
 </div>
