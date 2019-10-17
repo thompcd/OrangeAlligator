@@ -1,5 +1,6 @@
 <script>
 // import Radial from "../components/RadialGraph.svelte";
+import Cloud from "../components/Cloud.svelte";
 
 </script>
 <div class="section hero flex">
@@ -63,6 +64,21 @@
     <h2>Project Description</h2>
     <p>Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
     After a consultation, we were asked to design and develop sharepoint dashboard components</p>
+
+    <p>The customer started with a dashboard similar to this</p>
+    <div class="center-container">
+    <img  src="./blank-sharepoint-example.jpg" alt="Stock Sharepoint dashboard">
+    </div>
+
+    <p>An example of somebody that has used their space well</p>
+    <div class="center-container sky full-width">
+    <div class="section cloud-container">
+        <img style="top: 50%;" src="./sharepoint-example.jpg" alt="Populated sharepoint dashboard">
+        <div class="background">
+            <Cloud />
+        </div>
+    </div>
+    </div>
 </div>
 
 <div class="section">
@@ -110,6 +126,7 @@
     <div class="side chart-icon">
         <div class="flex one-third">
         <p class="step">2</p>
+        <img class="step-icon" src="./ci8-dashboard-redacted-crop.jpg" alt="first sketches">
         <p>Rough out charts, pitch the best, toss the rest.</p>
         </div>
         <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
@@ -139,6 +156,8 @@
         <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
     </div>
 </div>
+
+
 
 
 
@@ -186,6 +205,15 @@
     color: white;
 }
 
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 .hero{
     width: 100%;
     height: 300px;
@@ -214,8 +242,13 @@
     padding: 0rem 2rem;
     font-size: 1.5rem;
 }
+.step-icon{
+    width: 24rem;
+    height: 13.5rem;
+}
 .section{
     margin-bottom: 2rem;
+    z-index: 5;
 }
 
 .tools{
@@ -238,9 +271,6 @@
     display:flex;
 }
 
-.quote{
-}
-
 .one-third{
     width: 33%;
     padding: 0.5rem 2rem;
@@ -257,12 +287,24 @@
     width: 67%;
     padding: 0.5rem 2rem;
 }
-
+.background{
+    position: relative;
+    top: -300px;
+    left: 50px;
+    z-index: -1;
+}
 .center-container{
-    /* display: flex;
-    align-content: center; */
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
+.sky{
+      background: linear-gradient(0deg, #62a0d8 0%, #2178d1 50%, #085cb3 100%);
+}
+.cloud-container{
+    position: relative;
+}
 .note{
     border: solid 1px white;
     margin: 0 2rem;
