@@ -10,18 +10,37 @@
 </div>
 
 <div class="section side">
-    <div class="one-third">
-        <h2>Client</h2>
-        <h3>CI8</h3>
-        <img class="logo" src="./ci8.png" alt="CI8"/>
+    <div class="one-fourth">
+        <div class="flex col">
+            <h2>Client</h2>
+            <div class="set-height">
+                <img class="logo" src="./ci8-alpha.png" alt="CI8"/>
+            </div>
+                <h3>CI8</h3>
+        </div>
     </div>
-    <div class="one-third">
-        <h2>Location</h2>
-        <h3>Tulsa, OK</h3>
+    <div class="one-fourth">
+        <div class="flex col">
+            <h2>Location</h2>
+            <div class="set-height flex col pin-container">
+                <div class="pin">
+            </div>
+            </div>
+                <h3>Tulsa, OK</h3>
+        </div>
     </div>
-    <div class="one-third">
+    <div class="one-fourth">
         <h2>Role</h2>
+        <div class="set-height">
+        </div>
         <h3>Component UI, UX and Development</h3>
+    </div>
+    <div class="one-fourth">
+        <h2>Team</h2>
+        <div class="set-height">
+        <img class="logo" src="./corey-thompson.jpg" alt="Corey Thompson"/>
+        </div>
+        <h3>Corey</h3>
     </div>
 </div>
 
@@ -79,6 +98,24 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
 
 
 <style>
+
+.set-height{
+    height: 128px;
+}
+.pin-container{
+    max-height: 128px;
+}
+
+.pin{
+  width: 90px;
+  height: 90px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: solid 1px white;
+  align-self: center;
+}
+
+
 .hero{
     width: 100%;
     height: 300px;
@@ -86,6 +123,17 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
     align-items: center;
 }
 
+.logo{
+    width: 100px;
+    border-radius: 50px;
+    border: solid 1px white;
+}
+
+.col{
+    flex-direction: column;
+    align-content: center;
+    height: 100%;
+}
 .hero-inner{
     padding: 0 2rem;
 }
@@ -127,6 +175,13 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
 .one-third{
     width: 33%;
     padding: 0.5rem 2rem;
+}
+
+.one-fourth{
+    width: 25%;
+    padding: 0.25rem 2rem;
+    text-align: center;
+    justify-content: center;
 }
 
 .two-thirds{
