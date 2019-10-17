@@ -9,69 +9,65 @@
     </div>
 </div>
 
-<div class="section side">
+<div class="side">
     <div class="one-fourth">
         <div class="flex col">
             <h2>Client</h2>
             <div class="set-height">
                 <img class="logo" src="./ci8-alpha.png" alt="CI8"/>
             </div>
-                <h3>CI8</h3>
+            <h3>CI8</h3>
         </div>
     </div>
     <div class="one-fourth">
         <div class="flex col">
             <h2>Location</h2>
             <div class="set-height flex col pin-container">
-                <div class="pin">
+                <div class="pin"></div>
             </div>
-            </div>
-                <h3>Tulsa, OK</h3>
+            <h3>Tulsa, OK</h3>
         </div>
     </div>
     <div class="one-fourth">
         <h2>Role</h2>
-        <div class="set-height">
+        <div class="set-height flex col">
+            <div class="function">
+                <p class="function-content">fn</p>
+            </div>
         </div>
         <h3>Component UI, UX and Development</h3>
     </div>
     <div class="one-fourth">
         <h2>Team</h2>
         <div class="set-height">
-        <img class="logo" src="./corey-thompson.jpg" alt="Corey Thompson"/>
+            <img class="logo" src="./corey-thompson.jpg" alt="Corey Thompson"/>
         </div>
         <h3>Corey</h3>
     </div>
 </div>
 
 <div class="section">
-<h2>Tools</h2>
-<ul class="tools">
-    <li>Javascript</li>
-    <li>D3.js</li>
-    <li>SPFx.js</li>
-    <li>Sharepoint</li>
-    <li>VSCode</li>
-    <li>Git</li>
-    <li>Azure Devops</li>
-    <li>FTP</li>
-</ul>
-</div>
-
-<div class="section note">
-<div>info icon</div>
-The following content has been obfuscated and submitted to our client for approval to protect privacy and meet NDA requirements.
+    <ul class="tools">
+        <li>Javascript</li>
+        <li>D3.js</li>
+        <li>SPFx.js</li>
+        <li>Sharepoint</li>
+        <li>VSCode</li>
+        <li>Git</li>
+        <li>Azure Devops</li>
+        <li>FTP</li>
+    </ul>
 </div>
 
 <div class="section">
-<h2>Project Description</h2>
-<p>Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
-After a consultation, we were asked to design and develop sharepoint dashboard components</p>
+    <h2>Project Description</h2>
+    <p>Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
+    After a consultation, we were asked to design and develop sharepoint dashboard components</p>
 </div>
 
 <div class="section">
-<h2>Objective</h2>
-<p>Provide the user with a clear indicator of their monthly metrics progress with a dash of "wow" factor.</p>
+    <h2>Objective</h2>
+    <p>Provide the user with a clear indicator of their monthly metrics progression with a dash of "wow" factor.</p>
 </div>
 
 <div class="section">
@@ -86,6 +82,22 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
 </div>
 
 <div class="section">
+<h2>Playlist</h2>
+<a href="https://open.spotify.com/playlist/1t87DF4KAj9Vuz9QILyCQP?si=8Cl9kroHSl6DJthG-yhv4w">🎵 Acoustic Rock - stevenoss 🎵</a>
+</div>
+
+<div class="section note">
+    <div class="info-container">
+        <div class="info flex">
+            <div class="info-content">i</div>
+        </div>
+    </div>
+    <p>
+    Parts of the following have been intentionally altered from production content to content with similar structure and submitted to our client for approval in order to protect privacy and meet NDA requirements.
+    </p>
+</div>
+
+<div class="section">
     <h2>Actions</h2>
     <div class="side magnifying-glass">
         <div class="flex one-third">
@@ -94,11 +106,57 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
         </div>
         <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
     </div>
+
+    <div class="side chart-icon">
+        <div class="flex one-third">
+        <p class="step">2</p>
+        <p>Rough out charts, pitch the best, toss the rest.</p>
+        </div>
+        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+    </div>
+
+    <div class="side mail-icon">
+        <div class="flex one-third">
+        <p class="step">3</p>
+        <p>Emails, calls and revision.</p>
+        </div>
+        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+    </div>
+
+    <div class="side chart-icon">
+        <div class="flex one-third">
+        <p class="step">4</p>
+        <p>Build!</p>
+        </div>
+        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+    </div>
+
+    <div class="side chart-icon">
+        <div class="flex one-third">
+        <p class="step"><span style="text-decoration: line-through;"> 5 </span>3</p>
+        <p>Repeat step 3</p>
+        </div>
+        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+    </div>
 </div>
 
 
-<style>
 
+<style>
+.info{
+    height:1rem;
+    width: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid white;
+    justify-content: center;
+}
+.info-content{
+    align-self: center;
+    font-style: italic;
+}
+.note p{
+    padding: 0 1rem;
+}
 .set-height{
     height: 128px;
 }
@@ -107,14 +165,26 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
 }
 
 .pin{
-  width: 90px;
-  height: 90px;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  border: solid 1px white;
-  align-self: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: solid 1px white;
+    align-self: center;
 }
-
+.function{
+    border-radius: 20px;
+    border: 1px solid white;
+    height: 100px;
+    width: 100px;
+    align-self: center;
+}
+.function-content{
+    position:relative;
+    bottom: -3.4rem;
+    left: -1.7rem;
+    color: white;
+}
 
 .hero{
     width: 100%;
@@ -132,7 +202,6 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
 .col{
     flex-direction: column;
     align-content: center;
-    height: 100%;
 }
 .hero-inner{
     padding: 0 2rem;
@@ -151,7 +220,7 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
 
 .tools{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 }
 .tools li{
     list-style: none;
@@ -189,10 +258,17 @@ After a consultation, we were asked to design and develop sharepoint dashboard c
     padding: 0.5rem 2rem;
 }
 
+.center-container{
+    /* display: flex;
+    align-content: center; */
+}
+
 .note{
     border: solid 1px white;
     margin: 0 2rem;
     margin-bottom: 2rem;
     padding: 0.5rem 2rem;
+    display: flex;
+    align-items: baseline;
 }
 </style>
