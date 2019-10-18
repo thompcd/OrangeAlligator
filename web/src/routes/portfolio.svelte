@@ -20,13 +20,13 @@ import Cloud from "../components/Cloud.svelte";
             <h3>CI8</h3>
         </div>
     </div>
-    <div class="one-fourth">
+    <div id="pin" class="one-fourth">
         <div class="flex col">
-            <h2>Location</h2>
+            <h2 class="align">Location</h2>
             <div class="set-height flex col pin-container">
                 <div class="pin"></div>
             </div>
-            <h3>Tulsa, OK</h3>
+            <h3 class="align">Tulsa, OK</h3>
         </div>
     </div>
     <div class="one-fourth">
@@ -62,22 +62,26 @@ import Cloud from "../components/Cloud.svelte";
 
 <div class="section">
     <h2>Project Description</h2>
-    <p>Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
-    After a consultation, we were asked to design and develop sharepoint dashboard components</p>
+    <p style="padding-bottom: 2rem;">Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
+    After a consultation, we got an idea of what the client was looking for.</p>
 
-    <p>The customer started with a dashboard similar to this</p>
-    <div class="center-container">
-    <img  src="./blank-sharepoint-example.jpg" alt="Stock Sharepoint dashboard">
-    </div>
-
-    <p>An example of somebody that has used their space well</p>
     <div class="center-container sky full-width">
-    <div class="section cloud-container">
-        <img style="top: 50%;" src="./sharepoint-example.jpg" alt="Populated sharepoint dashboard">
-        <div class="background">
-            <Cloud />
+        <div class="section cloud-container">
+            <div style="padding-top:4rem;">
+            <img class="shadow" src="./sharepoint-example.jpg" alt="Populated sharepoint dashboard">
+            </div>
+            <div class="background">
+                <Cloud id="cloud-bottom"/>
+            </div>
+            <div class="background-2">
+                <Cloud id="cloud-top"/>
+            </div>
         </div>
     </div>
+
+    <p style="margin: 4rem 0;">The task was understood when we saw what the customer started with.</p>
+        <div class="center-container">
+        <img class="shadow" src="./blank-sharepoint-example.jpg" alt="Stock Sharepoint dashboard">
     </div>
 </div>
 
@@ -89,17 +93,12 @@ import Cloud from "../components/Cloud.svelte";
 <div class="section">
     <h2>Challenges</h2>
     <ul>
-        <li>Need context of entire report to gain an understanding of the current state</li>
+        <li>Need context of entire report to gain an understanding of the current state of metrics</li>
         <li>Retaining granularity of report data without the clutter</li>
         <li>Refresh rate of Sharepoint lists as data source</li>
-        <li>Limitations of Sharepoint Framework web parts within Sharepoint 2016</li>
+        <li>Limitations of Sharepoint Framework and web parts within Sharepoint 2016</li>
         <li>Support for IE11</li>
     </ul>
-</div>
-
-<div class="section">
-<h2>Playlist</h2>
-<a href="https://open.spotify.com/playlist/1t87DF4KAj9Vuz9QILyCQP?si=8Cl9kroHSl6DJthG-yhv4w">🎵 Acoustic Rock - stevenoss 🎵</a>
 </div>
 
 <div class="section note">
@@ -114,7 +113,7 @@ import Cloud from "../components/Cloud.svelte";
 </div>
 
 <div class="section">
-    <h2>Actions</h2>
+    <h2>The Process After HR</h2>
     <div class="side magnifying-glass">
         <div class="flex one-third">
         <p class="step">1</p>
@@ -143,25 +142,43 @@ import Cloud from "../components/Cloud.svelte";
     <div class="side chart-icon">
         <div class="flex one-third">
         <p class="step">4</p>
-        <p>Build!</p>
+        <p>Build</p>
         </div>
-        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+        <p class="two-thirds">With some high-level decisions made, we go into mad-scientist mode. We emerge from the basement with a pull request #1.</p>
     </div>
 
     <div class="side chart-icon">
         <div class="flex one-third">
-        <p class="step"><span style="text-decoration: line-through;"> 5 </span>3</p>
+        <p class="step">5</p>
         <p>Repeat step 3</p>
         </div>
-        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+        <p class="two-thirds">More emails, but now with marked-up attachments! We store these away, tied to projects in Azure Devops for reference.</p>
     </div>
+
+    <div class="side chart-icon">
+        <div class="flex one-third">
+        <p class="step">6</p>
+        <p>Pull Request #1 Accepted</p>
+        </div>
+        <p class="two-thirds">Back to the cave for the next component.</p>
+    </div>
+
+
+<div class="section">
+<h2>Playlist</h2>
+<a href="https://open.spotify.com/playlist/1t87DF4KAj9Vuz9QILyCQP?si=8Cl9kroHSl6DJthG-yhv4w">🎵 Acoustic Rock - stevenoss 🎵</a>
 </div>
 
-
-
-
+</div>
 
 <style>
+.align{
+    text-align: center;
+}
+.shadow{
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
 .info{
     height:1rem;
     width: 1rem;
@@ -180,10 +197,15 @@ import Cloud from "../components/Cloud.svelte";
     height: 128px;
 }
 .pin-container{
+    text-align: unset;
     max-height: 128px;
 }
 
+#pin{
+    text-align: unset;
+}
 .pin{
+    text-align: unset;
     width: 90px;
     height: 90px;
     border-radius: 50% 50% 50% 0;
@@ -191,7 +213,20 @@ import Cloud from "../components/Cloud.svelte";
     border: solid 1px white;
     align-self: center;
 }
+.pin:after{
+    text-align: unset;
+    content: '';
+    width: 36px;
+    height: 36px;
+    background: #ff5e57;
+    position: absolute;
+    border-radius: 50%;
+    margin-top: 26px;
+    margin-left: 26px;
+}
+
 .function{
+    background-color: #1e272e;
     border-radius: 20px;
     border: 1px solid white;
     height: 100px;
@@ -291,6 +326,13 @@ import Cloud from "../components/Cloud.svelte";
     position: relative;
     top: -300px;
     left: 50px;
+    z-index: -1;
+}
+
+.background-2{
+    position: relative;
+    top: -675px;
+    left: -400px;
     z-index: -1;
 }
 .center-container{
