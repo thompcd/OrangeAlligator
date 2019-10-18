@@ -31,6 +31,7 @@ seed="8517"/>
 body {
   width: 100%;
   height: 100%;
+    transition: 0.5s ease all;
   position: relative;
 }
 

@@ -1,7 +1,13 @@
 <script>
+import { slide } from 'svelte/transition';
 // import Radial from "../components/RadialGraph.svelte";
 import Cloud from "../components/Cloud.svelte";
 
+let collapse = true;
+
+    function toggleCollapse() {
+        collapse = !collapse;
+    }
 </script>
 <div class="section hero flex">
     <div class="hero-inner">
@@ -60,118 +66,139 @@ import Cloud from "../components/Cloud.svelte";
     </ul>
 </div>
 
-<div class="section">
-    <h2>Project Description</h2>
-    <p style="padding-bottom: 2rem;">Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
-    After a consultation, we got an idea of what the client was looking for.</p>
+<div class="section center-container">
+    <button class="primary-btn" on:click={toggleCollapse}>
+    	{collapse === true ? '˅˅ Read More ˅˅' : '˄˄ Hide ˄˄'}
+    </button>
+</div>
 
-    <div class="center-container sky full-width">
-        <div class="section cloud-container">
-            <div style="padding-top:4rem;">
-            <img class="shadow" src="./sharepoint-example.jpg" alt="Populated sharepoint dashboard">
-            </div>
-            <div class="background">
-                <Cloud id="cloud-bottom"/>
-            </div>
-            <div class="background-2">
-                <Cloud id="cloud-top"/>
-            </div>
-        </div>
-    </div>
+{#if collapse}
+<div transition:slide class:collapse>
+    <div class="section">
+        <h2>Project Description</h2>
+        <p style="padding-bottom: 2rem;">Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
+        After a consultation, we got an idea of what the client was looking for.</p>
 
-    <p style="margin: 4rem 0;">The task was understood when we saw what the customer started with.</p>
         <div class="center-container">
-        <img class="shadow" src="./blank-sharepoint-example.jpg" alt="Stock Sharepoint dashboard">
+            <div class="section cloud-container">
+                <div style="padding-top:4rem;">
+                <img class="shadow" src="./sharepoint-example.jpg" alt="Populated sharepoint dashboard">
+                </div>
+                <!-- <div class="background">
+                    <Cloud id="cloud-bottom"/>
+                </div>
+                <div class="background-2">
+                    <Cloud id="cloud-top"/>
+                </div> -->
+            </div>
+        </div>
+
+        <p style="margin: 4rem 0;">The task was understood when we saw what the customer started with.</p>
+            <div class="center-container">
+            <img class="shadow" src="./blank-sharepoint-example.jpg" alt="Stock Sharepoint dashboard">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Objective</h2>
+        <p>Provide the user with a clear indicator of their monthly metrics progression with a dash of "wow" factor.</p>
+    </div>
+
+    <div class="section">
+        <h2>Challenges</h2>
+        <ul>
+            <li>Need context of entire report to gain an understanding of the current state of metrics</li>
+            <li>Retaining granularity of report data without the clutter</li>
+            <li>Refresh rate of Sharepoint lists as data source</li>
+            <li>Limitations of Sharepoint Framework and web parts within Sharepoint 2016</li>
+            <li>Support for IE11</li>
+        </ul>
+    </div>
+
+    <div class="section note">
+        <div class="info-container">
+            <div class="info flex">
+                <div class="info-content">i</div>
+            </div>
+        </div>
+        <p>
+        Parts of the following have been intentionally altered from production content to content with similar structure and submitted to our client for approval in order to protect privacy and meet NDA requirements.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>The Process After HR</h2>
+        <div class="side magnifying-glass">
+            <div class="flex one-third">
+                <p class="step">1</p>
+                <p>Look at data, determine number and type of charts.</p>
+            </div>
+            <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+        </div>
+
+        <div class="side chart-icon">
+            <div class="flex one-third">
+                <p class="step">2</p>
+                <img class="step-icon" src="./ci8-dashboard-redacted-crop.jpg" alt="first sketches">
+                <p>Rough out charts, pitch the best, toss the rest.</p>
+            </div>
+            <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+        </div>
+
+        <div class="side mail-icon">
+            <div class="flex one-third">
+                <p class="step">3</p>
+                <p>Emails, calls and revision.</p>
+            </div>
+            <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+        </div>
+
+        <div class="side chart-icon">
+            <div class="flex one-third">
+                <p class="step">4</p>
+                <p>Build</p>
+            </div>
+            <p class="two-thirds">With some high-level decisions made, we go into mad-scientist mode. We emerge from the basement with a pull request #1.</p>
+        </div>
+
+        <div class="side chart-icon">
+            <div class="flex one-third">
+                <p class="step">5</p>
+                <p>Repeat step 3</p>
+            </div>
+            <p class="two-thirds">More emails, but now with marked-up attachments! We store these away, tied to projects in Azure Devops for reference.</p>
+        </div>
+
+        <div class="side chart-icon">
+            <div class="flex one-third">
+                <p class="step">6</p>
+                <p>Pull Request #1 Accepted</p>
+            </div>
+            <p class="two-thirds">Back to the cave for the next component.</p>
+        </div>
+
+
+        <div class="section">
+            <h2>Playlist</h2>
+            <a href="https://open.spotify.com/playlist/1t87DF4KAj9Vuz9QILyCQP?si=8Cl9kroHSl6DJthG-yhv4w">🎵 Acoustic Rock - stevenoss 🎵</a>
+        </div>
     </div>
 </div>
-
-<div class="section">
-    <h2>Objective</h2>
-    <p>Provide the user with a clear indicator of their monthly metrics progression with a dash of "wow" factor.</p>
-</div>
-
-<div class="section">
-    <h2>Challenges</h2>
-    <ul>
-        <li>Need context of entire report to gain an understanding of the current state of metrics</li>
-        <li>Retaining granularity of report data without the clutter</li>
-        <li>Refresh rate of Sharepoint lists as data source</li>
-        <li>Limitations of Sharepoint Framework and web parts within Sharepoint 2016</li>
-        <li>Support for IE11</li>
-    </ul>
-</div>
-
-<div class="section note">
-    <div class="info-container">
-        <div class="info flex">
-            <div class="info-content">i</div>
-        </div>
-    </div>
-    <p>
-    Parts of the following have been intentionally altered from production content to content with similar structure and submitted to our client for approval in order to protect privacy and meet NDA requirements.
-    </p>
-</div>
-
-<div class="section">
-    <h2>The Process After HR</h2>
-    <div class="side magnifying-glass">
-        <div class="flex one-third">
-        <p class="step">1</p>
-        <p>Look at data, determine number and type of charts.</p>
-        </div>
-        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
-    </div>
-
-    <div class="side chart-icon">
-        <div class="flex one-third">
-        <p class="step">2</p>
-        <img class="step-icon" src="./ci8-dashboard-redacted-crop.jpg" alt="first sketches">
-        <p>Rough out charts, pitch the best, toss the rest.</p>
-        </div>
-        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
-    </div>
-
-    <div class="side mail-icon">
-        <div class="flex one-third">
-        <p class="step">3</p>
-        <p>Emails, calls and revision.</p>
-        </div>
-        <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
-    </div>
-
-    <div class="side chart-icon">
-        <div class="flex one-third">
-        <p class="step">4</p>
-        <p>Build</p>
-        </div>
-        <p class="two-thirds">With some high-level decisions made, we go into mad-scientist mode. We emerge from the basement with a pull request #1.</p>
-    </div>
-
-    <div class="side chart-icon">
-        <div class="flex one-third">
-        <p class="step">5</p>
-        <p>Repeat step 3</p>
-        </div>
-        <p class="two-thirds">More emails, but now with marked-up attachments! We store these away, tied to projects in Azure Devops for reference.</p>
-    </div>
-
-    <div class="side chart-icon">
-        <div class="flex one-third">
-        <p class="step">6</p>
-        <p>Pull Request #1 Accepted</p>
-        </div>
-        <p class="two-thirds">Back to the cave for the next component.</p>
-    </div>
-
-
-<div class="section">
-<h2>Playlist</h2>
-<a href="https://open.spotify.com/playlist/1t87DF4KAj9Vuz9QILyCQP?si=8Cl9kroHSl6DJthG-yhv4w">🎵 Acoustic Rock - stevenoss 🎵</a>
-</div>
-
-</div>
+{/if}
 
 <style>
+
+.primary-btn{
+    font-size: 1rem;
+    color: #ed703a;
+    text-decoration: underline;
+    border:none;
+    background: none;
+}
+.primary-btn:hover{
+    color: #2e9be6;
+    
+}
 .align{
     text-align: center;
 }
@@ -251,7 +278,7 @@ import Cloud from "../components/Cloud.svelte";
 
 .hero{
     width: 100%;
-    height: 300px;
+    height: 250px;
     border: 1px solid white;
     align-items: center;
 }
