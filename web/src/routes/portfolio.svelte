@@ -81,21 +81,9 @@ let collapse = true;
         <p style="padding-bottom: 2rem;">Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
         After a consultation, we got an idea of what the client was looking for.</p>
 
-        <div class="center-container">
-            <div class="section cloud-container">
-                <div style="padding-top:4rem;">
                 <img class="shadow" src="./sharepoint-example.jpg" alt="Populated sharepoint dashboard">
-                </div>
-                <!-- <div class="background">
-                    <Cloud id="cloud-bottom"/>
-                </div>
-                <div class="background-2">
-                    <Cloud id="cloud-top"/>
-                </div> -->
-            </div>
-        </div>
 
-        <p style="margin: 4rem 0;">The task was understood when we saw what the customer started with.</p>
+        <p >The task was understood when we saw what the customer started with.</p>
             <div class="center-container">
             <img class="shadow" src="./blank-sharepoint-example.jpg" alt="Stock Sharepoint dashboard">
         </div>
@@ -285,6 +273,11 @@ let collapse = true;
   margin-right: -50vw;
 }
 
+.section img{
+    width: 100%;
+    margin: auto;
+}
+
 /* mobile */
 @media only screen and (max-width: 600px) {
     .hero{
@@ -309,6 +302,10 @@ let collapse = true;
     .one-fourth{
         text-align: center;
         justify-content: center;
+    }
+    .note{
+        display: flex;
+        align-items: baseline;
     }
 }
 
@@ -346,7 +343,14 @@ let collapse = true;
         text-align: center;
         justify-content: center;
     }
-
+    .note{
+        border: solid 1px white;
+        margin: 0 2rem;
+        margin-bottom: 2rem;
+        padding: 0.5rem 2rem;
+        display: flex;
+        align-items: baseline;
+    }
 }
 
 .logo{
@@ -395,37 +399,10 @@ let collapse = true;
     width: 67%;
     padding: 0.5rem 2rem;
 }
-.background{
-    position: relative;
-    top: -300px;
-    left: 50px;
-    z-index: -1;
-}
-
-.background-2{
-    position: relative;
-    top: -675px;
-    left: -400px;
-    z-index: -1;
-}
 .center-container{
     display: flex;
     align-content: center;
     justify-content: center;
 }
 
-.sky{
-      background: linear-gradient(0deg, #62a0d8 0%, #2178d1 50%, #085cb3 100%);
-}
-.cloud-container{
-    position: relative;
-}
-.note{
-    border: solid 1px white;
-    margin: 0 2rem;
-    margin-bottom: 2rem;
-    padding: 0.5rem 2rem;
-    display: flex;
-    align-items: baseline;
-}
 </style>
