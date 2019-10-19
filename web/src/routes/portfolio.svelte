@@ -1,5 +1,6 @@
 <script>
 import { slide } from 'svelte/transition';
+import { cubicInOut } from 'svelte/easing';
 // import Radial from "../components/RadialGraph.svelte";
 import Cloud from "../components/Cloud.svelte";
 
@@ -9,6 +10,7 @@ let collapse = true;
         collapse = !collapse;
     }
 </script>
+
 <div class="section hero flex">
     <div class="hero-inner">
     <h1>Adding interactivity to ditch reports</h1>
@@ -19,7 +21,7 @@ let collapse = true;
 <div class="side">
     <div class="one-fourth">
         <div class="flex col">
-            <h2>Client</h2>
+            <h2 class="align">Client</h2>
             <div class="set-height">
                 <img class="logo" src="./ci8-alpha.png" alt="CI8"/>
             </div>
@@ -36,7 +38,7 @@ let collapse = true;
         </div>
     </div>
     <div class="one-fourth">
-        <h2>Role</h2>
+        <h2 class="align">Role</h2>
         <div class="set-height flex col">
             <div class="function">
                 <p class="function-content">fn</p>
@@ -45,7 +47,7 @@ let collapse = true;
         <h3>Component UI, UX and Development</h3>
     </div>
     <div class="one-fourth">
-        <h2>Team</h2>
+        <h2 class="align">Team</h2>
         <div class="set-height">
             <img class="logo" src="./corey-thompson.jpg" alt="Corey Thompson"/>
         </div>
@@ -68,12 +70,12 @@ let collapse = true;
 
 <div class="section center-container">
     <button class="primary-btn" on:click={toggleCollapse}>
-    	{collapse === true ? '˅˅ Read More ˅˅' : '˄˄ Hide ˄˄'}
+    	{collapse === true ? '˅ Read More ˅' : '˄ Hide ˄'}
     </button>
 </div>
 
-{#if collapse}
-<div transition:slide class:collapse>
+{#if !collapse}
+<div transition:slide={{easing: cubicInOut, duration: 500}} class:collapse>
     <div class="section">
         <h2>Project Description</h2>
         <p style="padding-bottom: 2rem;">Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
@@ -182,6 +184,12 @@ let collapse = true;
             <h2>Playlist</h2>
             <a href="https://open.spotify.com/playlist/1t87DF4KAj9Vuz9QILyCQP?si=8Cl9kroHSl6DJthG-yhv4w">🎵 Acoustic Rock - stevenoss 🎵</a>
         </div>
+
+        <div class="section center-container">
+    <button class="primary-btn" on:click={toggleCollapse}>
+    	{collapse === true ? '˅ Read More ˅' : '˄ Hide ˄'}
+    </button>
+</div>
     </div>
 </div>
 {/if}
@@ -190,10 +198,11 @@ let collapse = true;
 
 .primary-btn{
     font-size: 1rem;
-    color: #ed703a;
-    text-decoration: underline;
-    border:none;
-    background: none;
+    color: white;
+    border: solid 1px white;
+    background-color: #ed703a;
+    border-radius: .1rem;
+    height: 2rem;
 }
 .primary-btn:hover{
     color: #2e9be6;
@@ -276,11 +285,68 @@ let collapse = true;
   margin-right: -50vw;
 }
 
-.hero{
-    width: 100%;
-    height: 250px;
-    border: 1px solid white;
-    align-items: center;
+/* mobile */
+@media only screen and (max-width: 600px) {
+    .hero{
+        width: 100%;
+        align-items: center;
+    }
+    .side{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .tools{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .section{
+        margin-bottom: 1rem;
+        z-index: 5;
+    }
+
+    .one-fourth{
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* desktop */
+@media only screen and (min-width: 600px) {
+    .hero{
+        width: 100%;
+        height: 250px;
+        border: 1px solid white;
+        align-items: center;
+    }
+    .hero > *{
+        padding: 0 2rem;
+    }
+    
+    .side{
+        display:flex;
+    }
+
+    .tools{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section{
+        margin-bottom: 2rem;
+        z-index: 5;
+    }
+
+    .one-fourth{
+        width: 25%;
+        padding: 0.25rem 2rem;
+        text-align: center;
+        justify-content: center;
+    }
+
 }
 
 .logo{
@@ -293,9 +359,7 @@ let collapse = true;
     flex-direction: column;
     align-content: center;
 }
-.hero-inner{
-    padding: 0 2rem;
-}
+
 .flex{
     display: flex;
 }
@@ -308,41 +372,23 @@ let collapse = true;
     width: 24rem;
     height: 13.5rem;
 }
-.section{
-    margin-bottom: 2rem;
-    z-index: 5;
-}
 
-.tools{
-    display: flex;
-    justify-content: center;
-}
 .tools li{
     list-style: none;
     border: 1px solid white;
     border-radius: 1rem;
-    padding: 0 .5rem;
-    margin: 0 .1rem;
+    padding: 0.2rem .5rem;
+    margin: 0.1rem .1rem;
+    height: 1.4rem;
 }
 
 .logo{
     height: 100px;
 }
 
-.side{
-    display:flex;
-}
-
 .one-third{
     width: 33%;
     padding: 0.5rem 2rem;
-}
-
-.one-fourth{
-    width: 25%;
-    padding: 0.25rem 2rem;
-    text-align: center;
-    justify-content: center;
 }
 
 .two-thirds{
