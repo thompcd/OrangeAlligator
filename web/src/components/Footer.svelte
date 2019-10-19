@@ -51,7 +51,7 @@
 	<div class="column">
     <h3>Who we are</h3>
     <div class="underline-box">
-      <a class="custom-underline" href="about">About OAS</a>
+      <a class="custom-underline" href="portfolio">Portfolio</a>
     </div>
     <div class="underline-box">
       <a class="custom-underline" href="blog">Recommended Services</a>
