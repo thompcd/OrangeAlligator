@@ -76,23 +76,84 @@ let collapse = true;
 
 {#if !collapse}
 <div transition:slide={{easing: cubicInOut, duration: 500}} class:collapse>
+    <div class="section note">
+        <div class="info-container">
+            <div class="info flex">
+                <div class="info-content">i</div>
+            </div>
+        </div>
+        <p>
+        Parts of the following have been intentionally altered from production content to content with similar structure and submitted to our client for approval in order to protect privacy and meet NDA requirements.
+        </p>
+    </div>
+    
     <div class="section">
-        <h2>Project Description</h2>
-        <p style="padding-bottom: 2rem;">Our client is trying to find more value in their sharepoint dashboard and needs a quick way to view their metrics outside of reports.
-        After a consultation, we got an idea of what the client was looking for.</p>
+        <h2>Existing System</h2>
+        <!-- <p>Our client prides themselves on being a metrics-driven company.
+        However, these daily metrics were buried under complex data, requiring a full report to be generated
+        </p> -->
 
-                <img class="shadow" src="./sharepoint-example.jpg" alt="Populated sharepoint dashboard">
+        <p>Our client prides themselves on being a metrics-driven company.
+        However, the process to distribute these values to employees seems cumbersome and frequent.
+        </p>
+    </div>
 
-        <p >The task was understood when we saw what the customer started with.</p>
-            <div class="center-container">
+    <div class="section">
+        <h2>Identifying What to Fix</h2>
+        <div class="center-container flex wrap">
+            <div class="one-third"><h3>Ease of Access</h3><p>Employees use these values in their everyday workflow, they should be readily available.</p></div>
+            <div class="one-third"><h3>Poor Usability</h3><p>Data existis in a complex report. A user has to traverse too much data for their use-case.</p></div>
+            <div class="one-third"><h3>High Barrier</h3><p>A complex report prevents new employees from understanding the numbers governing their work.</p></div>
+        </div>
+    </div>
+
+    <div class="section"><h2>Sharepoint
+    <p>The company has their PLM system tied into Sharepoint. Sharepoint dashboard offers a hub for all employees.</p>
+    </h2></div>
+    
+    <div class="section"><h2>Interactive Dashboard Widgets</h2><p>Charts exist to provide digest information of large datasets at the sacrifice of granularity of data. Using interactive charts, we can retain the granularity of information on the client's KPI's.</p></div>
+
+    <div class="section"><h2>Macro/Micro</h2><p>A measurement isn't valuable on its own, the numbers are only relevant in comparison to others. We had the concept of a macro and micro pair of charts to quickly understand today's numbers and the sources that drive that them as well vs. the trends of the past year.</p></div>
+
+    <div class="section">
+        <h2>Existing System</h2>
+        <p>We find the KPI calculations and trace the sources to identify the minimum amount of data to required.
+        </p>
+        <div class="center-container">
+            <img class="shadow" src="./blank-sharepoint-example.jpg" alt="Stock Sharepoint dashboard">
+        </div>
+    </div>
+    <div class="section">
+        <h2>Existing System</h2>
+        <p>From the data structure uncovered, we recommended potential charts that could offer both results at a glimpse and interactivity to allow a user to immediately dig deeper into any questionable results.
+        </p>
+        <div class="center-container">
             <img class="shadow" src="./blank-sharepoint-example.jpg" alt="Stock Sharepoint dashboard">
         </div>
     </div>
 
     <div class="section">
-        <h2>Objective</h2>
-        <p>Provide the user with a clear indicator of their monthly metrics progression with a dash of "wow" factor.</p>
-    </div>
+        <h2>The Existing</h2>
+        <div class="side magnifying-glass">
+            <p class="two-thirds">We find the KPI calculations and trace the sources to identify the minimum amount of data to required.</p>
+        </div>
+
+        <div class="side chart-icon">
+            <div class="flex one-third">
+                <p class="step">2</p>
+                <img class="step-icon" src="./ci8-dashboard-redacted-crop.jpg" alt="The given datasets had hierarchical qualitative categories each with a quantitative value.">
+                <p>From the data structure uncovered, we recommended potential charts that could offer both results at a glimpse and interactivity to allow a user to immediately dig deeper into any questionable results.</p>
+            </div>
+            <p class="two-thirds"> </p>
+        </div>
+
+        <div class="side mail-icon">
+            <div class="flex one-third">
+                <p class="step">3</p>
+                <p>Emails, calls and revision.</p>
+            </div>
+            <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
+        </div>
 
     <div class="section">
         <h2>Challenges</h2>
@@ -104,69 +165,6 @@ let collapse = true;
             <li>Support for IE11</li>
         </ul>
     </div>
-
-    <div class="section note">
-        <div class="info-container">
-            <div class="info flex">
-                <div class="info-content">i</div>
-            </div>
-        </div>
-        <p>
-        Parts of the following have been intentionally altered from production content to content with similar structure and submitted to our client for approval in order to protect privacy and meet NDA requirements.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>The Process After HR</h2>
-        <div class="side magnifying-glass">
-            <div class="flex one-third">
-                <p class="step">1</p>
-                <p>Look at data, determine number and type of charts.</p>
-            </div>
-            <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
-        </div>
-
-        <div class="side chart-icon">
-            <div class="flex one-third">
-                <p class="step">2</p>
-                <img class="step-icon" src="./ci8-dashboard-redacted-crop.jpg" alt="first sketches">
-                <p>Rough out charts, pitch the best, toss the rest.</p>
-            </div>
-            <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
-        </div>
-
-        <div class="side mail-icon">
-            <div class="flex one-third">
-                <p class="step">3</p>
-                <p>Emails, calls and revision.</p>
-            </div>
-            <p class="two-thirds">The given datasets had hierarchical qualitative categories each with a quantitative value</p>
-        </div>
-
-        <div class="side chart-icon">
-            <div class="flex one-third">
-                <p class="step">4</p>
-                <p>Build</p>
-            </div>
-            <p class="two-thirds">With some high-level decisions made, we go into mad-scientist mode. We emerge from the basement with a pull request #1.</p>
-        </div>
-
-        <div class="side chart-icon">
-            <div class="flex one-third">
-                <p class="step">5</p>
-                <p>Repeat step 3</p>
-            </div>
-            <p class="two-thirds">More emails, but now with marked-up attachments! We store these away, tied to projects in Azure Devops for reference.</p>
-        </div>
-
-        <div class="side chart-icon">
-            <div class="flex one-third">
-                <p class="step">6</p>
-                <p>Pull Request #1 Accepted</p>
-            </div>
-            <p class="two-thirds">Back to the cave for the next component.</p>
-        </div>
-
 
         <div class="section">
             <h2>Playlist</h2>
@@ -303,6 +301,10 @@ let collapse = true;
         text-align: center;
         justify-content: center;
     }
+
+    .one-third{
+        flex-wrap: wrap;
+    }
     .note{
         display: flex;
         align-items: baseline;
@@ -343,6 +345,12 @@ let collapse = true;
         text-align: center;
         justify-content: center;
     }
+
+    .one-third{
+        width: 33%;
+        padding: 0.5rem 2rem;
+    }
+    
     .note{
         border: solid 1px white;
         margin: 0 2rem;
@@ -388,11 +396,6 @@ let collapse = true;
 
 .logo{
     height: 100px;
-}
-
-.one-third{
-    width: 33%;
-    padding: 0.5rem 2rem;
 }
 
 .two-thirds{
