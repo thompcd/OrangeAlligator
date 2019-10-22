@@ -1,7 +1,13 @@
 <script context="module">
 import Card from "../components/Card.svelte";
 
-  let teamMembers = [
+import { slide } from 'svelte/transition';
+import { cubicInOut } from 'svelte/easing';
+// import Radial from "../components/RadialGraph.svelte";
+import Cloud from "../components/Cloud.svelte";
+import Section from "../components/Section.svelte";
+
+  let cardIcons = [
     {
 		name: "Web",
 	  	imageSrc: "./web-icon.png",
@@ -26,7 +32,7 @@ Business.<br>Software.
 Our front-end web and data visualization services provide unique consumer experiences while uncovering hidden factory, revealing your KPI’s trends and predicting your next targeted metrics. We also take dull or busy reports and make them clear, clean and professional. All of our services focus on a tangible benefit to you, the customer. <a href="./about">Learn how we focus on growing business.</a>
 
 <div class="cards">
-	      {#each teamMembers as member}
+	      {#each cardIcons as member}
 		  <div class="stack">
 			<Card
 			imageSrc={member.imageSrc}

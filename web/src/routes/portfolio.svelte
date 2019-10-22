@@ -1,16 +1,159 @@
 <script>
+import Card from "../components/Card.svelte";
+
 import { slide } from 'svelte/transition';
 import { cubicInOut } from 'svelte/easing';
 // import Radial from "../components/RadialGraph.svelte";
-import Cloud from "../components/Cloud.svelte";
-import Section from "../components/Section.svelte";
+// import Cloud from "../components/Cloud.svelte";
+// import Section from "../components/Section.svelte";
 
 let collapse = true;
 
     function toggleCollapse() {
         collapse = !collapse;
     }
+
+  let cardIcons = [
+    {
+		name: "Web",
+	  	imageSrc: "./web-icon.png",
+	},
+	{
+		name: "Data",
+	  	imageSrc: "./data-icon.png",
+	},
+	{
+		name: "Automation",
+	  	imageSrc: "./automation-icon.png",
+	},
+  ];
+
+
+  let teamMembers = [
+    {
+      name: "Corey Thompson",
+	  imageSrc: "./corey-thompson.jpg",
+	  links: {
+		icon: {
+			img: "facebook",
+			link: "https://www.facebook.com/coreydwaynethompson",
+		},
+		icon: {
+			img: "linkedIn",
+			link: "https://www.linkedin.com/in/coreydthompson/",
+		}
+      },
+      skills: ["Wordpress","Progressive Web App","Single Page App","Desktop App",".Net Framework","D3.js","Sharepoint","SPFx.js"],
+	  jobTitle: "Software Developer, Electrical Engineer",
+	  content: "Corey is a father, web developer, Data Visualization Society contributor, electrical engineer and full-time software engineer in Tulsa, OK. He has a specialty in manufacturing and quality control software with nearly a decade of experience working within the electronics, HVAC, oil and gas industries.",
+    },
+    {
+      name: "Trey Bishop",
+	  imageSrc: "./trey-bishop.jpg",
+	  links: {
+		icon: {
+			img: "linkedIn",
+			link: "https://www.linkedin.com/in/treybishop/",
+		}
+      },
+      skills: ["Design","Adobe Illustrator"],      
+	  jobTitle: "Designer, Innovation Consultant",
+	  content: "Trey is an inventor, concept artist and graphic designer with over fifteen years of experience working for creative agencies, large corporations and educational institutions. He specializes in exploring bold new ideas and innovating beyond the status quo and has worked with clients such as Circle 5 Studios, Tri County Tech, ESI with Walmart Labs, Questel, Executive IP and Nemesis Studios.",
+    },
+    {
+      name: "Lee Whitehead",
+	  imageSrc: "./lee-whitehead.png",
+	  links: {
+		icon: {
+			img: "linkedIn",
+			link: "https://www.linkedin.com/in/leetwhitehead/",
+		}
+      },
+      skills: ["Salesforce","Organic Growth Consulting","SaaS Marketing","Loyalty Programs","Customer Retention","Sales"],      
+	  jobTitle: "Growth and Enablement Consultant",
+	  content: "Lee is the owner of UVOICE Consulting, Inc. and has over 8 years of marketing, technology and sales enablement experience. He has a specialty in technology and SaaS businesses with a heavy focus on sustainable growth. Lee uses his vast experience in technology and marketing to help clients focus on growth through execution.",
+    },
+    {
+      name: "Blake Tucker",
+	  imageSrc: "./blake-tucker.jpg",
+	  links: {
+		icon: {
+			img: "linkedIn",
+			link: "https://www.linkedin.com/in/blake-t-85109783/",
+		}
+      },
+      skills: ["Office 365","System Administration"],      
+	  jobTitle: "Network Analyst, Technology Consultant",
+	  content: "Blake is a Network and Systems Analyst with over half a decade in the field. He uses his expertise in Azure's cloud services and Office 365 to help clients meet their Information Technology needs. He has worked in many industries such as oil and gas, healthcare, manufacturing, sales, marketing and legal.",
+    }
+  ];
 </script>
+
+<h1>
+Turn-key Software Projects.
+</h1>
+<div class="cards">
+	      {#each cardIcons as member}
+		  <div class="stack">
+			<Card
+			imageSrc={member.imageSrc}
+			/>
+			<h2 style="margin-top: -3rem; color: #414141; user-select: none; font-family: 'Roboto Condensed'; font-weight: 700; opacity: .9;">{member.name}</h2>
+		  </div>
+      {/each}
+</div>
+
+<h2>
+Got needs? We've got solutions.
+</h2>
+<div style="max-height: 400px; overflow:hidden;" class="section">
+    <ul class="tools">
+		{#each teamMembers as member}
+            {#each member.skills as skill}
+            <li>{skill}</li>
+            {/each}
+        {/each}
+        <li>Progressive Web Apps</li>
+        <li>Javascript</li>
+        <li>Desktop Apps</li>
+        <li>.Net Framework</li>
+        <li>D3.js</li>
+        <li>SPFx.js</li>
+        <li>Sharepoint</li>
+        <li>VSCode</li>
+        <li>Git</li>
+        <li>Azure Devops</li>
+        <li>A/B Testing</li>
+        <li>Wordpress Templates</li>
+        <li>Marketing Campaigns</li>
+        <li>Loyalty Programs</li>
+        <li>Document Workflows</li>
+        <li>PLM Systems</li>
+        <li>Salesforce</li>
+        <li>CRM Systems</li>
+        <li>Data Visualization</li>
+        <li>Market Analysis</li>
+    </ul>
+</div>
+<h2>What is OAS?</h2>
+<p>
+Software projects require expertise outside of the realm of just code. We have crafted a network of specialists that we partner with, allowing you to have experts work on your projects, even in niche fields.</p>
+
+<h2>Meet Our Experts</h2>
+
+    <div class="cards">
+		{#each teamMembers as member}
+		<div class="card" >
+				<Card
+				name={member.name}
+				imageSrc={member.imageSrc}
+				content={member.content}
+				jobTitle={member.jobTitle}
+				links={member.links}
+				/>
+		</div>
+		{/each}
+    </div>
 
 <div id="hero" class="section hero flex">
     <div class="hero-inner">
@@ -440,4 +583,23 @@ let collapse = true;
     justify-content: center;
 }
 
+
+  .stack{
+	  display: flex;
+	  flex-direction: column;
+	  text-align: center;
+	  padding: 1rem;
+  }
+
+    .cards {
+    display: flex;
+    justify-content: space-around;
+	flex-wrap: wrap;
+	  }
+	.card{
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		padding: 1rem;
+	}
 </style>
