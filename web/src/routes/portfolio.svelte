@@ -85,7 +85,7 @@ let collapse = true;
             </div>
         </div>
         <p>
-        Parts of the following have been intentionally altered from production content to content with similar structure and submitted to our client for approval in order to protect privacy and meet NDA requirements.
+        Parts of the following have been intentionally altered from production content to protect privacy and meet NDA requirements.
         </p>
     </div>
     
