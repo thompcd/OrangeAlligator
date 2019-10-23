@@ -4,8 +4,6 @@ import Card from "../components/Card.svelte";
 import { slide } from 'svelte/transition';
 import { cubicInOut } from 'svelte/easing';
 // import Radial from "../components/RadialGraph.svelte";
-import Cloud from "../components/Cloud.svelte";
-import Section from "../components/Section.svelte";
 
   let cardIcons = [
     {

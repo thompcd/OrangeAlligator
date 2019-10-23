@@ -36,6 +36,7 @@
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
 		<li style={liStyle} class='{segment === "contact" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='contact'>contact</a></li>
+		<li style={liStyle} class='{segment === "blog" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='blog'>blog</a></li>
 	</ul>
 </nav>
 
