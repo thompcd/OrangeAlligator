@@ -1,12 +1,23 @@
 <script>
+import Card from "../components/Card.svelte";
+
 import { slide } from 'svelte/transition';
 import { cubicInOut } from 'svelte/easing';
 
 let collapse = true;
+let collapseTeam = true;
 
     function toggleCollapse() {
+		if(collapse){
+			window.scrollTo({top: 400
+			, behavior:'smooth',});
+		}
         collapse = !collapse;
-    }
+	}
+	
+	function toggleTeam(){
+		collapseTeam = !collapseTeam;
+	}
 
   let teamMembers = [
     {
@@ -80,23 +91,18 @@ Got needs? We've got solutions.
     <ul class="tools center-container">
 		{#each teamMembers as member}
             {#each member.skills as skill}
-            <li>{skill}</li>
+            <li on:click={toggleTeam}>{skill}</li>
             {/each}
         {/each}
     </ul>
 </div>
-
-<!-- <h3 class="align sub">
+{#if !collapseTeam}
+<div class="sub" transition:slide={{easing: cubicInOut, duration: 500}}>
+<h2>Meet Our Experts</h2>
+<h3 class="align sub">
 Software projects require expertise outside of the realm of just code. We have crafted a network of specialists that we partner with, allowing you to have experts work on your projects, even in niche fields.
-</h3> -->
-
-<h1 class="align sub">
-Recent Projects
-</h1>
-
-<!-- <h2>Meet Our Experts</h2> -->
-
-    <!-- <div class="cards">
+</h3>
+    <div class="cards">
 		{#each teamMembers as member}
 		<div class="card" >
 				<Card
@@ -108,20 +114,29 @@ Recent Projects
 				/>
 		</div>
 		{/each}
-    </div> -->
+    </div>
+</div>
+{/if}
+
+<h1 id="projects" class="align sub">
+Recent Projects
+</h1>
+
 <div id="hero-container" class="full-width center-container gradient sub">
     <div id="hero" class="section hero flex" style="max-width: 70%;">
         <div class="hero-inner">
-        <h1>Adding interactivity to ditch reports</h1>
-        <h3>How we made a more usable KPI dashboard</h3>
-                    <button class="primary-btn" on:click={toggleCollapse}>
-    	    {collapse === true ? 'Read Story' : 'Hide Story'}
-    </button>
+			<h1>Adding interactivity to ditch reports</h1>
+			<h3>How we made a more usable KPI dashboard</h3>
+			<button class="primary-btn" on:click={toggleCollapse}>
+				{collapse === true ? 'Read Story' : 'Hide Story'}
+			</button>
         </div>
     </div>
 </div>
 {#if !collapse}
-<div transition:slide={{easing: cubicInOut, duration: 500}} class:collapse>
+<div transition:slide={{easing: cubicInOut, duration: 200}} 
+class:collapse
+>
 <div class="side">
     <div class="one-fourth">
         <div class="flex col">
@@ -285,8 +300,14 @@ Recent Projects
 h1{
     text-decoration: underline #ed703a solid;
 }
-.dark{
-		background-color: #2b2b2b;    
+.hero-inner *{
+	margin-left: 1rem;
+}
+.hero-inner h1{
+	text-decoration: none;
+	border-left: solid 2px #ed703a;
+	padding-left: 0.5rem;
+	margin-left: 0.5rem;
 }
 .gradient{
     
@@ -484,6 +505,11 @@ background: linear-gradient(180deg, rgba(43,43,43,1) 10%, rgba(46,155,230,1) 15%
         max-height: 200px; 
         overflow:hidden;
     }
+
+	#tool-container .tools li:hover{
+		background-color: #2e9be6;
+		color: #1e272e;
+	}
     .tools{
         display: flex;
         flex-wrap: wrap;
