@@ -1,5 +1,5 @@
 <script>
-import Card from "../components/Card.svelte";
+import Card from "../../components/Card.svelte";
 
 import { slide } from 'svelte/transition';
 import { cubicInOut } from 'svelte/easing';
@@ -89,59 +89,31 @@ let collapse = true;
   ];
 </script>
 
-<h1>
-Turn-key Software Projects.
-</h1>
-<div class="cards">
-	      {#each cardIcons as member}
-		  <div class="stack">
-			<Card
-			imageSrc={member.imageSrc}
-			/>
-			<h2 style="margin-top: -3rem; color: #414141; user-select: none; font-family: 'Roboto Condensed'; font-weight: 700; opacity: .9;">{member.name}</h2>
-		  </div>
-      {/each}
-</div>
-
-<h2>
+<h1 class="align sub">
 Got needs? We've got solutions.
-</h2>
-<div style="max-height: 400px; overflow:hidden;" class="section">
-    <ul class="tools">
+</h1>
+
+<div id="tool-container" class="sub">
+    <ul class="tools center-container">
 		{#each teamMembers as member}
             {#each member.skills as skill}
             <li>{skill}</li>
             {/each}
         {/each}
-        <li>Progressive Web Apps</li>
-        <li>Javascript</li>
-        <li>Desktop Apps</li>
-        <li>.Net Framework</li>
-        <li>D3.js</li>
-        <li>SPFx.js</li>
-        <li>Sharepoint</li>
-        <li>VSCode</li>
-        <li>Git</li>
-        <li>Azure Devops</li>
-        <li>A/B Testing</li>
-        <li>Wordpress Templates</li>
-        <li>Marketing Campaigns</li>
-        <li>Loyalty Programs</li>
-        <li>Document Workflows</li>
-        <li>PLM Systems</li>
-        <li>Salesforce</li>
-        <li>CRM Systems</li>
-        <li>Data Visualization</li>
-        <li>Market Analysis</li>
     </ul>
 </div>
-<h2>What is OAS?</h2>
-<p>
-Software projects require expertise outside of the realm of just code. We have crafted a network of specialists that we partner with, allowing you to have experts work on your projects, even in niche fields.</p>
 
-<h2>Meet Our Experts</h2>
+<!-- <h3 class="align sub">
+Software projects require expertise outside of the realm of just code. We have crafted a network of specialists that we partner with, allowing you to have experts work on your projects, even in niche fields.
+</h3> -->
 
-    <div class="cards">
+<h1 class="align sub">
+Recent Projects
+</h1>
+
+<!-- <h2>Meet Our Experts</h2> -->
+
+    <!-- <div class="cards">
 		{#each teamMembers as member}
 		<div class="card" >
 				<Card
@@ -153,15 +125,20 @@ Software projects require expertise outside of the realm of just code. We have c
 				/>
 		</div>
 		{/each}
-    </div>
-
-<div id="hero" class="section hero flex">
-    <div class="hero-inner">
-    <h1>Adding interactivity to ditch reports</h1>
-    <h3>How we made a more usable KPI dashboard</h3>
+    </div> -->
+<div id="hero-container" class="full-width center-container gradient sub">
+    <div id="hero" class="section hero flex" style="max-width: 70%;">
+        <div class="hero-inner">
+        <h1>Adding interactivity to ditch reports</h1>
+        <h3>How we made a more usable KPI dashboard</h3>
+                    <button class="primary-btn" on:click={toggleCollapse}>
+    	    {collapse === true ? 'Read Story' : 'Hide Story'}
+    </button>
+        </div>
     </div>
 </div>
-
+{#if !collapse}
+<div transition:slide={{easing: cubicInOut, duration: 500}} class:collapse>
 <div class="side">
     <div class="one-fourth">
         <div class="flex col">
@@ -199,8 +176,8 @@ Software projects require expertise outside of the realm of just code. We have c
     </div>
 </div>
 
-<div class="section">
-    <ul class="tools">
+<div class="sub">
+    <ul class="tools center-container">
         <li>Javascript</li>
         <li>D3.js</li>
         <li>SPFx.js</li>
@@ -212,15 +189,6 @@ Software projects require expertise outside of the realm of just code. We have c
     </ul>
 </div>
 
-
-<div class="section center-container">
-    <button class="primary-btn" on:click={toggleCollapse}>
-    	{collapse === true ? 'Read Story' : 'Hide Story'}
-    </button>
-</div>
-
-{#if !collapse}
-<div transition:slide={{easing: cubicInOut, duration: 500}} class:collapse>
     <div class="section note">
         <div class="info-container">
             <div class="info flex">
@@ -230,8 +198,7 @@ Software projects require expertise outside of the realm of just code. We have c
         <p>
         Parts of the following have been intentionally altered from production content to protect privacy and meet NDA requirements.
         </p>
-    </div>
-    
+    </div> 
     <div class="section">
         <h2>Existing System</h2><p>Our client prides themselves on being a metrics-driven company. However, the process to distribute these values to employees seems cumbersome and frequent.
         <br>After a consultation, we were asked to create a better experience for the employees to access and track these values daily.</p>
@@ -332,6 +299,26 @@ Software projects require expertise outside of the realm of just code. We have c
 {/if}
 
 <style>
+h1{
+    text-decoration: underline #ed703a solid;
+}
+.dark{
+		background-color: #2b2b2b;    
+}
+.gradient{
+    
+    background: rgb(46,155,230);
+    background: linear-gradient(135deg, rgba(46, 155,230,1) 15%, rgba(43,43,43,1) 15%, rgba(43,43,43,1) 65%, rgba(46,155,230,1) 65%); 
+/* background: rgb(43,43,43);
+background: linear-gradient(180deg, rgba(43,43,43,1) 10%, rgba(46,155,230,1) 15%, rgba(67,131,233,1) 50%, rgba(46,155,230,1) 85%, rgba(43,43,43,1) 90%); */
+}
+
+#hero-container:hover{
+    transition: background 1s;
+    background: rgb(46,155,230);
+    background: linear-gradient(135deg, rgba(46, 155,230,1) 10%, rgba(43,43,43,1) 20%, rgba(43,43,43,1) 60%, rgba(46,155,230,1) 70%); 
+
+}
 
 .primary-btn{
     font-size: 1rem;
@@ -436,6 +423,9 @@ Software projects require expertise outside of the realm of just code. We have c
         width: 100%;
         align-items: center;
     }
+    .hero-inner{
+        padding: 1rem 1rem 0 1rem;
+    }
     .side{
         display:flex;
         flex-direction: column;
@@ -444,6 +434,12 @@ Software projects require expertise outside of the realm of just code. We have c
     .tools{
         display: flex;
         flex-wrap: wrap;
+        padding-left: 0;
+    }
+
+    #tool-container{
+        height: 15.8rem;
+        overflow: hidden;
     }
 
     .section{
@@ -479,17 +475,21 @@ Software projects require expertise outside of the realm of just code. We have c
 
 /* desktop */
 @media only screen and (min-width: 600px) {
-
+    #hero-container{
+        border-top: solid 1px white;
+        border-bottom: solid 1px white;
+    }
     #hero{
         margin-bottom: 2rem;
     }
     .hero{
         width: 100%;
         height: 250px;
-        border: 1px solid white;
         align-items: center;
     }
     .hero > *{
+        margin-top: 1rem;
+        margin-bottom: 1 rem;
         padding: 0 2rem;
     }
     
@@ -497,6 +497,10 @@ Software projects require expertise outside of the realm of just code. We have c
         display:flex;
     }
 
+    #tool-container{
+        max-height: 200px; 
+        overflow:hidden;
+    }
     .tools{
         display: flex;
         flex-wrap: wrap;
@@ -509,7 +513,7 @@ Software projects require expertise outside of the realm of just code. We have c
         z-index: 5;
     }
     .sub{
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
         z-index: 5;
     }
 

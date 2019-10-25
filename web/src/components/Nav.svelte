@@ -88,7 +88,7 @@
 		color: #f3f3f3;
 	}
 
-	a:hover {
+	/* a:hover {
 		color: #2e9be6;
-	}
+	} */
 </style>
