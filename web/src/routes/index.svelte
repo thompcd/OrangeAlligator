@@ -1,5 +1,6 @@
 <script>
 import Card from "../components/Card.svelte";
+import Proj from "../components/ProjectSummary.svelte";
 
 import { slide } from 'svelte/transition';
 import { cubicInOut } from 'svelte/easing';
@@ -134,10 +135,15 @@ Recent Projects
     </div>
 </div>
 {#if !collapse}
-<div transition:slide={{easing: cubicInOut, duration: 200}} 
+<div transition:slide={{easing: cubicInOut, duration: 400}} 
 class:collapse
 >
-<div class="side">
+<!-- TODO: Add team member filter -->
+<Proj clients="CI8" location="Tulsa, OK" teamMembers={teamMembers[0].name} roles="Component UI, UX, Development" tools={teamMembers[0].skills}>
+<img slot="client-icon" src="./ci8-alpha.png" alt="CI8"/>
+<img slot="team-icon" src="./corey-thompson.jpg" alt="Corey Thompson"/>
+</Proj>
+<!-- <div class="side">
     <div class="one-fourth">
         <div class="flex col">
             <h2 class="align">Client</h2>
@@ -185,7 +191,7 @@ class:collapse
         <li>Azure Devops</li>
         <li>FTP</li>
     </ul>
-</div>
+</div> -->
 
     <div class="section note">
         <div class="info-container">
@@ -356,52 +362,6 @@ background: linear-gradient(180deg, rgba(43,43,43,1) 10%, rgba(46,155,230,1) 15%
 .note p{
     padding: 0 1rem;
 }
-.set-height{
-    height: 128px;
-}
-.pin-container{
-    text-align: unset;
-    max-height: 128px;
-}
-
-#pin{
-    text-align: unset;
-}
-.pin{
-    text-align: unset;
-    width: 90px;
-    height: 90px;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-    border: solid 1px white;
-    align-self: center;
-}
-.pin:after{
-    text-align: unset;
-    content: '';
-    width: 36px;
-    height: 36px;
-    background: #ff5e57;
-    position: absolute;
-    border-radius: 50%;
-    margin-top: 26px;
-    margin-left: 26px;
-}
-
-.function{
-    background-color: #1e272e;
-    border-radius: 20px;
-    border: 1px solid white;
-    height: 100px;
-    width: 100px;
-    align-self: center;
-}
-.function-content{
-    position:relative;
-    bottom: -3.4rem;
-    left: -1.7rem;
-    color: white;
-}
 
 .full-width {
   width: 100vw;
@@ -454,11 +414,6 @@ background: linear-gradient(180deg, rgba(43,43,43,1) 10%, rgba(46,155,230,1) 15%
     .sub{
         margin-bottom: 0.5rem;
         z-index: 5;
-    }
-
-    .one-fourth{
-        text-align: center;
-        justify-content: center;
     }
 
     .one-third{
@@ -526,13 +481,6 @@ background: linear-gradient(180deg, rgba(43,43,43,1) 10%, rgba(46,155,230,1) 15%
         z-index: 5;
     }
 
-    .one-fourth{
-        width: 25%;
-        padding: 0.25rem 2rem;
-        text-align: center;
-        justify-content: center;
-    }
-
     .one-third{
         width: 33%;
         padding: 0.5rem 2rem;
@@ -553,28 +501,8 @@ background: linear-gradient(180deg, rgba(43,43,43,1) 10%, rgba(46,155,230,1) 15%
     }
 }
 
-.logo{
-    width: 100px;
-    border-radius: 50px;
-    border: solid 1px white;
-}
-
-.col{
-    flex-direction: column;
-    align-content: center;
-}
-
 .flex{
     display: flex;
-}
-
-.step{
-    padding: 0rem 2rem;
-    font-size: 1.5rem;
-}
-.step-icon{
-    width: 24rem;
-    height: 13.5rem;
 }
 
 .tools li{
@@ -586,33 +514,22 @@ background: linear-gradient(180deg, rgba(43,43,43,1) 10%, rgba(46,155,230,1) 15%
     height: 1.4rem;
 }
 
-.logo{
-    height: 100px;
-}
-
 .center-container{
     display: flex;
     align-content: center;
     justify-content: center;
 }
 
-
-  .stack{
-	  display: flex;
-	  flex-direction: column;
-	  text-align: center;
-	  padding: 1rem;
-  }
-
-    .cards {
+.cards {
     display: flex;
     justify-content: space-around;
-	flex-wrap: wrap;
-	  }
-	.card{
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-		padding: 1rem;
-	}
+    flex-wrap: wrap;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+}
 </style>
