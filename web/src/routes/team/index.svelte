@@ -1,7 +1,7 @@
 <script context="module">
   import client from '../../sanityClient'
 	export function preload({ params, query }) {
-    return client.fetch('*[_type=="teamMember"]{name, bio, jobTitle, skills, image, facebook, linkedIn, deviantArt, twitter, devTo}')
+    return client.fetch('*[_type=="teamMember"]{name, bio, jobTitle, skills, image, facebook, linkedIn, deviantArt, twitter, devTo,  skills[] -> {description,title}}')
         .then(members => {
                 return { members };
             }).catch(err => this.error(500, err));
@@ -43,13 +43,17 @@ function urlFor(source) {
     <div class="cards">
 		{#each members as member}
 		<div class="card" >
-                {member.skills[0].name}
 				<Card
 				name={member.name}
 				imageSrc={urlFor(member.image).width(300).url()}
 				content={member.bio}
 				jobTitle={member.jobTitle}}
 				/>
+                     <ul>
+                    {#each member.skills as skill}
+                        <li>{skill.title}</li>
+                    {/each}
+                     </ul>
 		</div>
 		{/each}
     </div>
