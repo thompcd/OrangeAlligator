@@ -19,9 +19,52 @@ export default {
         title: 'Title'
       },
       {
+        name: 'skills',
+        type: 'array',
+        title: 'Skills',
+        of: [
+          {
+            type: 'reference',
+            to: {
+              type: 'skill'
+            }
+          }
+        ]
+      },
+      {
         name: 'bio',
         type: 'text',
         title: 'Bio'
+      },
+      {
+        name: 'linkedIn',
+        type: 'url',
+        title: 'LinkedIn URL'
+      },
+      {
+        name: 'facebook',
+        type: 'url',
+        title: 'Facebook URL'
+      },
+      {
+        name: 'twitter',
+        type: 'url',
+        title: 'Twitter URL'
+      },
+      {
+        name: 'github',
+        type: 'url',
+        title: 'Github URL'
+      },
+      {
+        name: 'deviantArt',
+        type: 'url',
+        title: 'DeviantArt URL'
+      },
+      {
+        name: 'devTo',
+        type: 'url',
+        title: 'Dev.To URL'
       },
     ],
     preview: {

@@ -6,15 +6,15 @@
 		// the `slug` parameter is available because
     // this file is called [slug].html
     const { slug } = params
-    const filter = '*[_type == "post" && slug.current == $slug][0]'
+    const filter = '*[_type == "teamMember"]'
     const projection = `{
       ...,
       body[]{
         ...,
         children[]{
           ...,
-          _type == 'authorReference' => {
-            author->
+          _type == 'teamMember' => {
+            name->
           }
         }
       }

@@ -10,6 +10,7 @@ import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import teamMember from './documents/teamMember'
+import skill from './documents/skill'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -36,7 +37,8 @@ export default createSchema({
     authorReference,
     bodyPortableText,
     bioPortableText,
-    excerptPortableText
+    excerptPortableText,
+    skill
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
