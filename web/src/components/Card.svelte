@@ -6,7 +6,6 @@
   export let content;
   export let jobTitle;
   export let links = [];
-  console.log("links",links)
 </script>
 
 <div class="card">

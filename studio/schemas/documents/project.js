@@ -55,7 +55,10 @@ export default {
         type: 'array',
         of: [
           {
-            type: 'client'
+            type: 'reference',
+            to: {
+              type: 'client'
+            }
           }
         ]
       },

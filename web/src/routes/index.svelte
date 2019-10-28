@@ -1,99 +1,93 @@
+<script context="module">
+  import client from '../sanityClient'
+	export async function preload({ params, query }) {
+    return await client.fetch('*[_type=="teamMember"]{name, bio, jobTitle, skills, image, facebook, linkedIn, deviantArt, twitter, devTo,  skills[] -> {description,title}}')
+        .then(members => {
+                return { members };
+            }).catch(err => this.error(500, err));
+	}
+</script>
+
 <script>
 import Card from "../components/Card.svelte";
 import Proj from "../components/ProjectSummary.svelte";
+import imageUrlBuilder from '@sanity/image-url'
+import myConfiguredSanityClient from '../sanityClient'
 
 import { slide } from 'svelte/transition';
 import { cubicInOut } from 'svelte/easing';
+import { onMount } from 'svelte';
+
+export let members;
 
 let collapse = true;
-let collapseTeam = true;
+let collapseTeam = false;
+let verticalShift;
 
-    function toggleCollapse() {
-		if(collapse){
-			window.scrollTo({top: 400
-			, behavior:'smooth',});
-		}
-        collapse = !collapse;
-	}
-	
-	function toggleTeam(){
-		collapseTeam = !collapseTeam;
+onMount(() => {
+    let di = document.querySelector('#proj-btn-1')
+    verticalShift = offset(di)
+    console.log(verticalShift)
+});
+
+// $: offset = di(el);
+// $: console.log(offset)
+
+function offset(el) {
+	    var rect = el.getBoundingClientRect(),
+	    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+	    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 	}
 
-  let teamMembers = [
-    {
-      name: "Corey Thompson",
-	  imageSrc: "./corey-thompson.jpg",
-	  links: {
-		icon: {
-			img: "facebook",
-			link: "https://www.facebook.com/coreydwaynethompson",
-		},
-		icon: {
-			img: "linkedIn",
-			link: "https://www.linkedin.com/in/coreydthompson/",
-		}
-      },
-      skills: ["Wordpress","Progressive Web App","Single Page App","Desktop App",".Net Framework","D3.js","Sharepoint","SPFx.js"],
-	  jobTitle: "Software Developer, Electrical Engineer",
-	  content: "Corey is a father, web developer, Data Visualization Society contributor, electrical engineer and full-time software engineer in Tulsa, OK. He has a specialty in manufacturing and quality control software with nearly a decade of experience working within the electronics, HVAC, oil and gas industries.",
-    },
-    {
-      name: "Trey Bishop",
-	  imageSrc: "./trey-bishop.jpg",
-	  links: {
-		icon: {
-			img: "linkedIn",
-			link: "https://www.linkedin.com/in/treybishop/",
-		}
-      },
-      skills: ["Design","Adobe Illustrator"],      
-	  jobTitle: "Designer, Innovation Consultant",
-	  content: "Trey is an inventor, concept artist and graphic designer with over fifteen years of experience working for creative agencies, large corporations and educational institutions. He specializes in exploring bold new ideas and innovating beyond the status quo and has worked with clients such as Circle 5 Studios, Tri County Tech, ESI with Walmart Labs, Questel, Executive IP and Nemesis Studios.",
-    },
-    {
-      name: "Lee Whitehead",
-	  imageSrc: "./lee-whitehead.png",
-	  links: {
-		icon: {
-			img: "linkedIn",
-			link: "https://www.linkedin.com/in/leetwhitehead/",
-		}
-      },
-      skills: ["Salesforce","Organic Growth Consulting","SaaS Marketing","Loyalty Programs","Customer Retention","Sales"],      
-	  jobTitle: "Growth and Enablement Consultant",
-	  content: "Lee is the owner of UVOICE Consulting, Inc. and has over 8 years of marketing, technology and sales enablement experience. He has a specialty in technology and SaaS businesses with a heavy focus on sustainable growth. Lee uses his vast experience in technology and marketing to help clients focus on growth through execution.",
-    },
-    {
-      name: "Blake Tucker",
-	  imageSrc: "./blake-tucker.jpg",
-	  links: {
-		icon: {
-			img: "linkedIn",
-			link: "https://www.linkedin.com/in/blake-t-85109783/",
-		}
-      },
-      skills: ["Office 365","System Administration"],      
-	  jobTitle: "Network Analyst, Technology Consultant",
-	  content: "Blake is a Network and Systems Analyst with over half a decade in the field. He uses his expertise in Azure's cloud services and Office 365 to help clients meet their Information Technology needs. He has worked in many industries such as oil and gas, healthcare, manufacturing, sales, marketing and legal.",
+function toggleCollapse() {
+    if(collapse){
+        window.scrollTo({top: verticalShift.top
+        , behavior:'smooth',});
     }
-  ];
+    collapse = !collapse;
+}
+
+function toggleTeam(){
+    collapseTeam = !collapseTeam;
+}
+    
+    // Get a pre-configured url-builder from your sanity client
+const builder = imageUrlBuilder(myConfiguredSanityClient)
+
+// Then we like to make a simple function like this that gives the
+// builder an image and returns the builder for you to specify additional
+// parameters:
+function urlFor(source) {
+  let it =  builder.image(source);
+  console.log("img url", it)
+  return it;
+}
+
+
 </script>
 
 <svelte:head>
 	<title>Home | Orange Alligator Solutions</title>
 </svelte:head>
 
+{@debug members}
 <h1 class="align sub">
 Got needs? We've got solutions.
 </h1>
 
 <div id="tool-container" class="sub">
     <ul class="tools center-container">
-		{#each teamMembers as member}
+		{#each members as member}
             {#each member.skills as skill}
-            <li on:click={toggleTeam}>{skill}</li>
+            <li on:click={toggleTeam}>{skill.title}</li>
+            	{:else}
+		<!-- this block renders when photos.length === 0 -->
+		<p>loading...</p>
             {/each}
+            	{:else}
+		<!-- this block renders when photos.length === 0 -->
+		<p>loading...</p>
         {/each}
     </ul>
 </div>
@@ -104,16 +98,19 @@ Got needs? We've got solutions.
 Software projects require expertise outside of the realm of just code. We have crafted a network of specialists that we partner with, allowing you to have experts work on your projects, even in niche fields.
 </h3>
     <div class="cards">
-		{#each teamMembers as member}
+		{#each members as member}
 		<div class="card" >
 				<Card
 				name={member.name}
-				imageSrc={member.imageSrc}
-				content={member.content}
+				imageSrc={urlFor(member.image).width(300).url()}
+				content={member.bio}
 				jobTitle={member.jobTitle}
 				links={member.links}
 				/>
 		</div>
+        	{:else}
+		<!-- this block renders when photos.length === 0 -->
+		<p>loading...</p>
 		{/each}
     </div>
 </div>
@@ -128,7 +125,7 @@ Recent Projects
         <div class="hero-inner">
 			<h1>Adding interactivity to ditch reports</h1>
 			<h3>How we made a more usable KPI dashboard</h3>
-			<button class="primary-btn" on:click={toggleCollapse}>
+			<button id="proj-btn-1" class="primary-btn" on:click={toggleCollapse}>
 				{collapse === true ? 'Read Story' : 'Hide Story'}
 			</button>
         </div>
@@ -139,7 +136,7 @@ Recent Projects
 class:collapse
 >
 <!-- TODO: Add team member filter -->
-<Proj clients="CI8" location="Tulsa, OK" teamMembers={teamMembers[0].name} roles="Component UI, UX, Development" tools={teamMembers[0].skills}>
+<Proj clients="CI8" location="Tulsa, OK" members={members[0].name} roles="Component UI, UX, Development" tools={members[0].skills}>
 <img slot="client-icon" src="./ci8-alpha.png" alt="CI8"/>
 <img slot="team-icon" src="./corey-thompson.jpg" alt="Corey Thompson"/>
 </Proj>
