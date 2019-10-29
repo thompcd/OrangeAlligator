@@ -14,7 +14,7 @@ $: projTools= tools;
             <h2 class="align">Client</h2>
             <div class="set-height">
                 <slot name="client-icon">
-                    <img src="./corey-thompson.jpg" alt="sry">
+                    <img src="./admin-80.png" alt="default client icon">
                 </slot>
             </div>
             <h3>{clients}</h3>
@@ -50,7 +50,7 @@ $: projTools= tools;
 <div class="sub">
     <ul class="tools center-container">
         {#each projTools as tool}
-            <li>{tool}</li>
+            <li>{tool.title}</li>
         {/each}
     </ul>
 </div>

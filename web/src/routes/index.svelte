@@ -1,11 +1,11 @@
 <script context="module">
-  import client from '../sanityClient'
-	export async function preload({ params, query }) {
-    return await client.fetch('*[_type=="teamMember"]{name, bio, jobTitle, skills, image, facebook, linkedIn, deviantArt, twitter, devTo,  skills[] -> {description,title}}')
-        .then(members => {
-                return { members };
-            }).catch(err => this.error(500, err));
-	}
+import client from '../sanityClient'
+export async function preload({ params, query }) {
+return await client.fetch('*[_type=="teamMember"]{name, bio, jobTitle, skills, image, facebook, linkedIn, deviantArt, twitter, devTo,  skills[] -> {description,title}}')
+    .then(members => {
+            return { members };
+        }).catch(err => this.error(500, err));
+}
 </script>
 
 <script>
@@ -21,7 +21,7 @@ import { onMount } from 'svelte';
 export let members;
 
 let collapse = true;
-let collapseTeam = false;
+let collapseTeam = true;
 let verticalShift;
 
 onMount(() => {
@@ -29,9 +29,6 @@ onMount(() => {
     verticalShift = offset(di)
     console.log(verticalShift)
 });
-
-// $: offset = di(el);
-// $: console.log(offset)
 
 function offset(el) {
 	    var rect = el.getBoundingClientRect(),
@@ -64,57 +61,11 @@ function urlFor(source) {
   return it;
 }
 
-
 </script>
 
 <svelte:head>
 	<title>Home | Orange Alligator Solutions</title>
 </svelte:head>
-
-{@debug members}
-<h1 class="align sub">
-Got needs? We've got solutions.
-</h1>
-
-<div id="tool-container" class="sub">
-    <ul class="tools center-container">
-		{#each members as member}
-            {#each member.skills as skill}
-            <li on:click={toggleTeam}>{skill.title}</li>
-            	{:else}
-		<!-- this block renders when photos.length === 0 -->
-		<p>loading...</p>
-            {/each}
-            	{:else}
-		<!-- this block renders when photos.length === 0 -->
-		<p>loading...</p>
-        {/each}
-    </ul>
-</div>
-{#if !collapseTeam}
-<div class="sub" transition:slide={{easing: cubicInOut, duration: 500}}>
-<h2>Meet Our Experts</h2>
-<h3 class="align sub">
-Software projects require expertise outside of the realm of just code. We have crafted a network of specialists that we partner with, allowing you to have experts work on your projects, even in niche fields.
-</h3>
-    <div class="cards">
-		{#each members as member}
-		<div class="card" >
-				<Card
-				name={member.name}
-				imageSrc={urlFor(member.image).width(300).url()}
-				content={member.bio}
-				jobTitle={member.jobTitle}
-				links={member.links}
-				/>
-		</div>
-        	{:else}
-		<!-- this block renders when photos.length === 0 -->
-		<p>loading...</p>
-		{/each}
-    </div>
-</div>
-{/if}
 
 <h1 id="projects" class="align sub">
 Recent Projects
@@ -135,60 +86,12 @@ Recent Projects
 <div transition:slide={{easing: cubicInOut, duration: 400}} 
 class:collapse
 >
+
 <!-- TODO: Add team member filter -->
-<Proj clients="CI8" location="Tulsa, OK" members={members[0].name} roles="Component UI, UX, Development" tools={members[0].skills}>
+<Proj clients="CI8" location="Tulsa, OK" members={members} roles="Component UI, UX, Development" tools={members[0].skills}>
 <img slot="client-icon" src="./ci8-alpha.png" alt="CI8"/>
 <img slot="team-icon" src="./corey-thompson.jpg" alt="Corey Thompson"/>
 </Proj>
-<!-- <div class="side">
-    <div class="one-fourth">
-        <div class="flex col">
-            <h2 class="align">Client</h2>
-            <div class="set-height">
-                <img class="logo" src="./ci8-alpha.png" alt="CI8"/>
-            </div>
-            <h3>CI8</h3>
-        </div>
-    </div>
-    <div id="pin" class="one-fourth">
-        <div class="flex col">
-            <h2 class="align">Location</h2>
-            <div class="set-height flex col pin-container">
-                <div class="pin"></div>
-            </div>
-            <h3 class="align">Tulsa, OK</h3>
-        </div>
-    </div>
-    <div class="one-fourth">
-        <h2 class="align">Role</h2>
-        <div class="set-height flex col">
-            <div class="function">
-                <p class="function-content">fn</p>
-            </div>
-        </div>
-        <h3>Component UI, UX and Development</h3>
-    </div>
-    <div class="one-fourth">
-        <h2 class="align">Team</h2>
-        <div class="set-height">
-            <img class="logo" src="./corey-thompson.jpg" alt="Corey Thompson"/>
-        </div>
-        <h3>Corey</h3>
-    </div>
-</div>
-
-<div class="sub">
-    <ul class="tools center-container">
-        <li>Javascript</li>
-        <li>D3.js</li>
-        <li>SPFx.js</li>
-        <li>Sharepoint</li>
-        <li>VSCode</li>
-        <li>Git</li>
-        <li>Azure Devops</li>
-        <li>FTP</li>
-    </ul>
-</div> -->
 
     <div class="section note">
         <div class="info-container">
@@ -298,6 +201,57 @@ class:collapse
     </div>
 </div>
 {/if}
+
+<h1 class="align sub">
+Got needs? We've got solutions.
+</h1>
+
+<div id="tool-container" class="sub">
+    <ul class="tools center-container">
+		{#each members as member}
+            {#each member.skills as skill}
+                <li on:click={toggleTeam}>{skill.title}</li>
+            {:else}
+                <li on:click={toggleTeam}>Data Visualization</li>
+                <li on:click={toggleTeam}>Interactive Data</li>
+                <li on:click={toggleTeam}>Frontend Development</li>
+                <li on:click={toggleTeam}>Portfolio Sites</li>
+                <li on:click={toggleTeam}>D3.js</li>
+                <li on:click={toggleTeam}>Wordpress</li>
+                <li on:click={toggleTeam}>Web Frameworks</li>
+                <li on:click={toggleTeam}>Svelte</li>
+            {/each}
+        {:else}
+            <!-- this block renders when members.length === 0 -->
+            <p>loading...</p>
+        {/each}
+    </ul>
+</div>
+{#if !collapseTeam}
+<div class="sub" transition:slide={{easing: cubicInOut, duration: 500}}>
+<h2>Meet Our Experts</h2>
+<h3 class="align sub">
+Software projects require expertise outside of the realm of just code. We have crafted a network of specialists that we partner with, allowing you to have experts work on your projects, even in niche fields.
+</h3>
+    <div class="cards">
+		{#each members as member}
+		<div class="card" >
+				<Card
+				name={member.name}
+				imageSrc={urlFor(member.image).width(300).url()}
+				content={member.bio}
+				jobTitle={member.jobTitle}
+				links={member.links}
+				/>
+		</div>
+        	{:else}
+		<!-- this block renders when photos.length === 0 -->
+		<p>loading...</p>
+		{/each}
+    </div>
+</div>
+{/if}
+
 
 <style>
 h1{
