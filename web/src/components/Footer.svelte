@@ -20,13 +20,8 @@
       <a class="custom-underline" href="contact">Free Consultation</a>
     </div>
     <div class="underline-box">
-      <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://orangealligatorsolutions.com/file-share/">File Share
-      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
-      </a>
-    </div>
-    <div class="underline-box">
       <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://billing.orangealligatorsolutions.com/">Client Billing
-      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
+      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="customer billing - link leaves site">
       </a>
     </div>        
 	</div>
@@ -38,24 +33,19 @@
       <a class="custom-underline" href="contact">Free Consultation</a>
     </div>
     <div class="underline-box">
-      <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://orangealligatorsolutions.com/file-share/">File Share
-      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
-      </a>
-    </div>
-    <div class="underline-box">
       <a class="custom-underline" target="_blank" rel="noopener noreferrer" href="https://billing.orangealligatorsolutions.com/">Client Billing
-      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="link leaves site">
+      <img style="padding-top: .1rem;" src="/open-in-browser-16.png" alt="customer billing - link leaves site">
       </a>
     </div>        
 	</div>
 	<div class="column">
     <h3>Who we are</h3>
     <div class="underline-box">
-      <a class="custom-underline" href="portfolio">Portfolio</a>
+      <a class="custom-underline" href="team">Meet the team</a>
     </div>
-    <div class="underline-box">
+    <!-- <div class="underline-box">
       <a class="custom-underline" href="blog">Recommended Services</a>
-    </div> 
+    </div>  -->
 	</div>
     <div class="column paragraph" style="max-width: 30%; flex-wrap: wrap; ">
       <h3 style="justify-self: flex-start;">Our core values<br></h3>

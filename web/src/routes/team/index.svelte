@@ -29,10 +29,6 @@ function urlFor(source) {
  
 </script>
 
-<style>
-
-</style>
-
 <svelte:head>
 	<title>Team Members</title>
 </svelte:head>
@@ -49,12 +45,27 @@ function urlFor(source) {
 				content={member.bio}
 				jobTitle={member.jobTitle}}
 				/>
-                     <ul>
+                     <!-- <ul>
                     {#each member.skills as skill}
                         <li>{skill.title}</li>
                     {/each}
-                     </ul>
+                     </ul> -->
 		</div>
 		{/each}
     </div>
 </ul>
+
+<style>
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+}
+</style>
