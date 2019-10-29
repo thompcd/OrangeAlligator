@@ -20,10 +20,10 @@ describe('Nav Menu', function () {
 
         //all links are valid
         it('has proper titles and links', () => {
-            cy.get('nav a').contains('about').click();
-            cy.url().should('include', '/about');
-            cy.get('nav a').contains('services').click();
-            cy.url().should('include', '/services');
+            // cy.get('nav a').contains('about').click();
+            // cy.url().should('include', '/about');
+            // cy.get('nav a').contains('services').click();
+            // cy.url().should('include', '/services');
             cy.get('nav a').contains('contact').click();
             cy.url().should('include', '/contact');
         });

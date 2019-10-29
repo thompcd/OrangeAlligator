@@ -31,15 +31,12 @@
 
 <nav style={navStyle}>
 	<ul>
-		<li class='{segment === undefined ? "selected" : ""} {underlineBox}' id="home"><a rel=prefetch class={customUnderline} href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
+		<li class='{segment === undefined ? "selected" : ""}' id="home"><a rel=prefetch href='.'><img src="./oas-cog-title.png" alt="orange alligator logo"/></a></li>
 
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
 		<li style={liStyle} class='{segment === "contact" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='contact'>contact</a></li>
-		<!-- <li class='{segment === "customer-services" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='customer-services'>client</a></li> -->
-		<!-- <li class='{segment === "blog" ? "selected" : ""} underline-box' ><a class="custom-underline" rel=prefetch  href='blog'>blog</a></li> -->
-		<li style={liStyle} class='{segment === "about" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='about'>about</a></li>
-		<li style={liStyle} class='{segment === "services" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='services'>services</a></li>
+		<li style={liStyle} class='{segment === "blog" ? "selected" : ""} {underlineBox}' ><a class={customUnderline} rel=prefetch  href='blog'>blog</a></li>
 	</ul>
 </nav>
 
@@ -91,7 +88,7 @@
 		color: #f3f3f3;
 	}
 
-	a:hover {
+	/* a:hover {
 		color: #2e9be6;
-	}
+	} */
 </style>

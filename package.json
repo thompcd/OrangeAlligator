@@ -19,6 +19,7 @@
     "lerna": "^3.14.0"
   },
   "dependencies": {
+    "@sanity/image-url": "^0.140.15",
     "ua-parser-js": "^0.7.20"
   }
 }
