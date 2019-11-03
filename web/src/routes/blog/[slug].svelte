@@ -2,6 +2,8 @@
   import blocksToHtml from '@sanity/block-content-to-html'
   import client from '../../sanityClient'
   import serializers from '../../components/serializers'
+import { fly } from 'svelte/transition';
+
 	export async function preload({ params }) {
 		// the `slug` parameter is available because
     // this file is called [slug].html
@@ -51,7 +53,7 @@
 	}
 
 	.content :global(pre) {
-		background-color: #f9f9f9;
+    background-color: #f3f3f3;
 		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
 		padding: 0.5em;
 		border-radius: 2px;
@@ -62,7 +64,8 @@
 	.content :global(pre) :global(code) {
 
 		background-color: transparent;
-		padding: 0;
+    padding: 0;
+    color: gray;
 	}
 
   .content :global(pre::after) {
@@ -71,7 +74,7 @@
     position: absolute;
     right: 0;
     background: #ff3e00;
-    color: #fff;
+    color: white;
     padding: 2px;
     border-radius: 2px;
   }
@@ -99,8 +102,10 @@
 	<title>{post.title}</title>
 </svelte:head>
 
+<div transition:fly class="wrapper">
 <h1>{post.title}</h1>
 
 <div class='content'>
 	{@html post.body}
+</div>
 </div>

@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@sanity/image-url": "^0.140.15",
+    "logrocket": "^1.0.3",
     "ua-parser-js": "^0.7.20"
   }
 }

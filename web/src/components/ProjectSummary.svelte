@@ -5,6 +5,7 @@ export let location;
 export let clients;
 export let teamMembers;
 
+let memberNameString = "";
 $: projTools= tools;
 </script>
 
@@ -43,14 +44,24 @@ $: projTools= tools;
         <div class="set-height">
             <img class="logo" src="./corey-thompson.jpg" alt="Corey Thompson"/>
         </div>
-        <h3>{teamMembers}</h3>
+        <h3>
+        {#each teamMembers as member, i}
+            {#if i == 0}
+                {memberNameString + member}
+            {:else}
+                {memberNameString + ", " + member}
+            {/if}
+        {:else}
+        
+        {/each}
+        </h3>
     </div>
 </div>
 
 <div class="sub">
     <ul class="tools center-container">
         {#each projTools as tool}
-            <li>{tool.title}</li>
+            <li>{tool}</li>
         {/each}
     </ul>
 </div>
