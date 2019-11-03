@@ -88,7 +88,7 @@ class:collapse
 >
 
 <!-- TODO: Add team member filter -->
-<Proj clients="CI8" location="Tulsa, OK" members={members} roles="Component UI, UX, Development" tools={members[0].skills}>
+<Proj clients="CI8" location="Tulsa, OK" teamMembers={["Corey"]} roles="Component UI, UX, Development" tools={['Sharpeoint','D3.js','SPFX.js','Data Visualization','Interactive Design']}>
 <img slot="client-icon" src="./ci8-alpha.png" alt="CI8"/>
 <img slot="team-icon" src="./corey-thompson.jpg" alt="Corey Thompson"/>
 </Proj>

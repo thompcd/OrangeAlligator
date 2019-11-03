@@ -10,12 +10,51 @@
   }
 
 async function getProjects(){
-	const results = await client.fetch('*[_type == "post" && defined(slug.current) && publishedAt < now()]{slug,title,publishedAt,excerpt,categories[]->{title},authors[]}|order(publishedAt desc)');
-	console.log("results",results)
-
+	const results = 
+	await client.fetch('*[_type == "post" && defined(slug.current) && publishedAt < now()]{slug,title,publishedAt,excerpt,categories[]->{title},authors[]}|order(publishedAt desc)');
 	return results;
 }
 </script>
+
+
+<svelte:head>
+	<title>Blog</title>
+</svelte:head>
+
+<h1>Recent posts</h1>
+
+
+{#await posts}
+	<h3>Loading...</h3>
+{:then data}
+	<ul>
+		{#each data as post}
+			<!-- we're using the non-standard `rel=prefetch` attribute to
+					tell Sapper to load the data for the page as soon as
+					the user hovers over the link or taps it, instead of
+					waiting for the 'click' event -->
+			<li class="entry-wrapper">
+				<div class="entry">
+					<h2><a href='blog/{post.slug.current}'>{post.title}</a></h2>
+					<h4>
+					{post.excerpt[0].children[0].text}
+					</h4>
+					<div class="side">
+						<p id="entry-date">{formatDate(post.publishedAt)}</p>
+						<ul class="tools">
+							{#each post.categories as category}
+								<li>{category.title}</li>
+							{/each}
+						</ul>
+					</div>
+
+				</div>
+			</li>
+		{/each}
+	</ul>
+{/await}
+
+
 
 <style>
 
@@ -76,41 +115,3 @@ async function getProjects(){
 		margin-bottom: 2.5rem;
 	}
 </style>
-
-<svelte:head>
-	<title>Blog</title>
-</svelte:head>
-
-<h1>Recent posts</h1>
-
-
-{#await posts}
-	<h3>Loading...</h3>
-{:then data}
-	<ul>
-		{#each data as post}
-			<!-- we're using the non-standard `rel=prefetch` attribute to
-					tell Sapper to load the data for the page as soon as
-					the user hovers over the link or taps it, instead of
-					waiting for the 'click' event -->
-			<li class="entry-wrapper">
-				<div class="entry">
-					<h2><a href='blog/{post.slug.current}'>{post.title}</a></h2>
-					<h4>
-					{post.excerpt[0].children[0].text}
-					</h4>
-					<div class="side">
-						<p id="entry-date">{formatDate(post.publishedAt)}</p>
-						<ul class="tools">
-							{#each post.categories as category}
-								<li>{category.title}</li>
-							{/each}
-						</ul>
-					</div>
-
-				</div>
-			</li>
-		{/each}
-	</ul>
-{/await}
-
